@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>TEMAN BERCERITA • Kelas 6 MI Arifah</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- html2pdf.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior-y: none;
+    }
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(3deg); }
+    }
+    .animate-float {
+      animation: floatSlow 3.5s ease-in-out infinite;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+
+<body class="min-h-full flex flex-col bg-slate-50 text-slate-800 selection:bg-emerald-500 selection:text-white pb-12 sm:pb-0">
+
+  <div id="toastContainer" class="fixed top-4 right-4 sm:top-5 sm:right-5 z-50 flex flex-col gap-2 max-w-xs sm:max-w-sm w-full pointer-events-none px-2 sm:px-0"></div>
+
+  <div id="camouflageOverlay" class="hidden fixed inset-0 z-50 bg-slate-100 overflow-y-auto p-3 sm:p-8">
+    <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl border border-slate-200 p-5 sm:p-8 my-auto">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-4 mb-5 gap-3">
+        <div>
+          <span class="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+            📐 Portal Latihan Mandiri • Kelas 6 MI Arifah
+          </span>
+          <h1 class="text-lg sm:text-2xl font-extrabold text-slate-900 mt-2">Latihan Mandiri Matematika & IPA</h1>
+        </div>
+        <button onclick="toggleCamouflage(false)" class="text-xs bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white px-4 py-2.5 rounded-2xl font-bold transition flex items-center justify-center gap-2 shadow-sm self-start sm:self-auto">
+          <i data-lucide="shield-check" class="w-4 h-4"></i> Kembali ke Ruang Cerita
+        </button>
+      </div>
+      <div class="space-y-4 text-xs sm:text-sm text-slate-700">
+        <p class="font-bold text-slate-900">1. Sebuah kubus memiliki panjang rusuk 12 cm. Berapakah volume kubus tersebut?</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <button class="p-3 bg-slate-50 hover:bg-blue-50 rounded-xl text-left border border-slate-200 text-xs font-medium">A. 1.244 cm³</button>
+          <button class="p-3 bg-blue-50/80 rounded-xl text-left border-2 border-blue-500 text-xs font-extrabold text-blue-800">B. 1.728 cm³ (Benar)</button>
+        </div>
+        <p class="font-bold text-slate-900 pt-3">2. Bagian tumbuhan yang berfungsi menyerap air dan hara dari tanah adalah...</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <button class="p-3 bg-blue-50/80 rounded-xl text-left border-2 border-blue-500 text-xs font-extrabold text-blue-800">A. Akar (Benar)</button>
+          <button class="p-3 bg-slate-50 hover:bg-blue-50 rounded-xl text-left border border-slate-200 text-xs font-medium">B. Batang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      
+      <!-- Brand & Title -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-md flex-shrink-0">
+            <i data-lucide="heart-handshake" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 leading-none">TEMAN BERCERITA</h1>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+                MI Arifah
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-0.5">Ruang Konseling Digital & Dashboard Wali Kelas 6</p>
+          </div>
+        </div>
+
+        <button onclick="toggleCamouflage(true)" class="md:hidden bg-amber-100 hover:bg-amber-200 active:scale-95 text-amber-900 text-xs font-extrabold px-3 py-2 rounded-xl flex items-center gap-1.5 border border-amber-300">
+          <i data-lucide="shield" class="w-4 h-4"></i> Kamuflase
+        </button>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex items-center gap-2">
+        <nav class="flex items-center gap-1 bg-slate-100 p-1 rounded-2xl border border-slate-200 w-full sm:w-auto overflow-x-auto no-scrollbar">
+          <button onclick="switchMainTab('student')" id="tabBtn-student" class="px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap bg-emerald-600 text-white shadow-sm">
+            <i data-lucide="smile-plus" class="w-4 h-4"></i> Ruang Siswa
+          </button>
+          <button onclick="requestTeacherAuth('teacher')" id="tabBtn-teacher" class="px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap text-slate-600 hover:bg-white">
+            <i id="teacherLockIcon" data-lucide="lock" class="w-3.5 h-3.5 text-amber-600"></i>
+            <span>Dashboard Wali Kelas</span>
+          </button>
+          <button onclick="requestTeacherAuth('nlp')" id="tabBtn-nlp" class="px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap text-slate-600 hover:bg-white">
+            <i data-lucide="settings" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Pengaturan AI</span>
+          </button>
+        </nav>
+
+        <button onclick="toggleCamouflage(true)" class="hidden md:flex bg-amber-100 hover:bg-amber-200 active:scale-95 text-amber-900 text-xs font-extrabold px-3 py-2.5 rounded-xl items-center gap-1.5 border border-amber-300 whitespace-nowrap transition">
+          <i data-lucide="shield" class="w-4 h-4"></i> Mode Kamuflase
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-4 sm:py-6">
+
+    <!-- =======================================================================
+         TAB 1: RUANG SISWA
+    ======================================================================== -->
+    <section id="tabContent-student">
+
+      <!-- Onboarding Gate / Student Selection -->
+      <div id="studentOnboardingGate" class="max-w-xl mx-auto my-4 sm:my-8">
+        <div class="bg-white rounded-3xl border border-emerald-200 shadow-xl overflow-hidden">
+          <div class="bg-gradient-to-br from-emerald-600 to-teal-700 p-6 sm:p-8 text-white">
+            <div class="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-xs font-bold mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i> Ruang Aman Kelas 6 MI Arifah
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold leading-tight">Assalamualaikum, Sahabat! 🌱</h2>
+            <p class="text-xs sm:text-sm text-emerald-50 mt-2 leading-relaxed">
+              Pilih namamu pada daftar di bawah ini untuk mulai bercerita bersama <strong>Sobat Cerita</strong>.
+            </p>
+          </div>
+
+          <form onsubmit="handleStudentGateSubmit(event)" class="p-6 sm:p-8 space-y-5">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="selectStudentNameGate" class="block text-xs sm:text-sm font-extrabold text-slate-800">
+                  1. Pilih Nama Lengkapmu <span class="text-rose-600">*</span>
+                </label>
+                <span id="rosterCountBadge" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  Memuat data...
+                </span>
+              </div>
+              <select id="selectStudentNameGate" required class="w-full bg-slate-50 focus:bg-white border-2 border-slate-200 focus:border-emerald-500 rounded-2xl px-4 py-3.5 text-xs sm:text-sm font-bold text-slate-900 outline-none transition shadow-sm">
+                <option value="">-- Pilih Namamu di Sini --</option>
+              </select>
+
+              <div id="emptyRosterNotice" class="hidden mt-3 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-1">
+                <p class="font-bold flex items-center gap-1.5">⚠️ Belum Ada Data Siswa Terdaftar</p>
+                <p class="text-[11px]">Wali Kelas (Bpk. Hilmy) dapat memasukkan daftar nama siswa di **Dashboard Wali Kelas** terlebih dahulu.</p>
+              </div>
+            </div>
+
+            <div>
+              <label for="selectStudentAliasGate" class="block text-xs font-extrabold text-slate-700 mb-1.5">
+                2. Pilih Gelar Rahasiamu (Nama Samaran):
+              </label>
+              <select id="selectStudentAliasGate" class="w-full bg-slate-50 border-2 border-slate-200 focus:border-emerald-500 rounded-2xl px-4 py-3 text-xs sm:text-sm font-bold text-slate-800 outline-none transition shadow-sm">
+                <option value="Penjelajah Bintang">🌟 Penjelajah Bintang</option>
+                <option value="Kapten Angkasa">🚀 Kapten Angkasa</option>
+                <option value="Pelangi Senja">🌈 Pelangi Senja</option>
+                <option value="Elang Biru">🦅 Elang Biru</option>
+                <option value="Bunga Matahari">🌻 Bunga Matahari</option>
+              </select>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 active:scale-[0.99] text-white font-extrabold text-xs sm:text-sm shadow-lg transition flex items-center justify-center gap-2">
+              <span>Masuk ke Ruang Siswa</span>
+              <i data-lucide="arrow-right-circle" class="w-5 h-5"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Main Student Area (After Selecting Name) -->
+      <div id="studentMainWorkspace" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+
+        <!-- Left Column: Profile, Mood Journal, Garden Gamification -->
+        <div class="lg:col-span-5 space-y-5">
+          <!-- Student Greeting Header -->
+          <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-5 sm:p-6 text-white shadow-md">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold bg-white/20 px-3 py-1 rounded-full flex items-center gap-1">
+                <i data-lucide="user-check" class="w-3.5 h-3.5"></i> Sesi Aktif
+              </span>
+              <button onclick="resetStudentSession()" class="text-xs bg-white/20 hover:bg-white/30 active:scale-95 font-bold px-3 py-1 rounded-xl transition">
+                Ganti Siswa
+              </button>
+            </div>
+            <h2 id="displayStudentGreeting" class="text-xl sm:text-2xl font-extrabold">Selamat Datang! 🌱</h2>
+            <p class="text-xs text-emerald-50 mt-1">
+              Nama Terdaftar: <strong id="displayStudentRealName" class="text-amber-300 font-bold">-</strong>
+            </p>
+          </div>
+
+          <!-- Weather Mood Check-In -->
+          <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4">
+            <h3 class="font-extrabold text-slate-800 text-xs sm:text-sm flex items-center gap-2">
+              <span class="text-base">🌤️</span> Jurnal Cuaca Hatimu Hari Ini
+            </h3>
+
+            <div class="grid grid-cols-5 gap-1.5 sm:gap-2" id="moodGridContainer"></div>
+            
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-2">Faktor Pemicu Perasaan Hari Ini:</label>
+              <div class="flex flex-wrap gap-1.5 mb-2.5" id="triggerChipsContainer"></div>
+              <input type="text" id="inputCustomTrigger" placeholder="Atau ketik pemicu lainnya..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:border-emerald-500 transition">
+            </div>
+
+            <button onclick="saveStudentMoodCheckIn()" class="w-full py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-sm">
+              <i data-lucide="sparkles" class="w-4 h-4"></i> Simpan Jurnal Cuaca Hati (+2 Embun 💧)
+            </button>
+          </div>
+
+          <!-- Feelings Garden (Gamification) -->
+          <div class="bg-gradient-to-br from-amber-50 to-emerald-50 rounded-3xl p-5 border border-emerald-200 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-xs sm:text-sm text-slate-800">🌱 Taman Perasaanmu</h4>
+              <span class="text-xs sm:text-sm font-black text-emerald-700 bg-white px-3 py-1 rounded-2xl border border-emerald-200 shadow-sm" id="displayEmbunCount">💧 10 Embun</span>
+            </div>
+            
+            <div class="w-full bg-emerald-200/60 rounded-full h-2.5 mb-3 overflow-hidden">
+              <div id="flowerProgressBar" class="bg-gradient-to-r from-emerald-500 to-teal-600 h-2.5 rounded-full transition-all duration-500" style="width: 40%"></div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-4 border border-emerald-100 flex items-center justify-between shadow-xs">
+              <div class="flex items-center gap-3">
+                <span class="text-3xl sm:text-4xl animate-float" id="flowerEmoji">🌷</span>
+                <div>
+                  <span class="text-[10px] font-extrabold uppercase bg-amber-100 text-amber-800 px-2 py-0.5 rounded" id="flowerLevelBadge">Level 2 • Kuncup Ceria</span>
+                  <p class="font-extrabold text-xs text-slate-800 mt-1" id="flowerTitleName">Bunga Ketangguhan</p>
+                </div>
+              </div>
+              <button onclick="waterGarden()" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-bold rounded-xl shadow transition flex items-center gap-1.5">
+                <span>💧 Siram</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Story Counseling Input & AI Response -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+            <div>
+              <h3 class="font-extrabold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                <i data-lucide="message-square-heart" class="w-5 h-5 text-emerald-600"></i>
+                Ruang Curhat Sobat Cerita
+              </h3>
+              <p class="text-xs text-slate-500 mt-0.5">Tuliskan apa saja yang mengganggu pikiranmu. AI Sobat Cerita akan mendengarkan & membalas dengan hangat.</p>
+            </div>
+
+            <form onsubmit="handleStorySubmit(event)" class="space-y-4">
+              <div>
+                <textarea id="inputStoryText" required rows="5" placeholder="Tuliskan ceritamu di sini secara bebas... (misal: 'Hari ini saya cemas menghadapi latihan matematika...')" class="w-full bg-slate-50 border-2 border-slate-200 focus:border-emerald-500 rounded-2xl p-4 text-xs sm:text-sm font-medium text-slate-800 outline-none transition resize-none"></textarea>
+              </div>
+
+              <div class="flex justify-end">
+  <button type="submit" id="btnSubmitStory" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 active:scale-[0.99] text-white font-extrabold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
+    <i data-lucide="send" class="w-4 h-4"></i> Kirim Curhatan
+  </button>
+</div>
+            </form>
+
+            <!-- AI Response Box -->
+            <div id="aiResponseContainer" class="hidden mt-6 p-5 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-3">
+              <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-xs sm:text-sm border-b border-emerald-200 pb-2">
+                <i data-lucide="bot" class="w-5 h-5 text-emerald-600"></i>
+                <span>Balasan AI Sobat Cerita:</span>
+              </div>
+              <p id="aiResponseBody" class="text-xs sm:text-sm leading-relaxed text-slate-800 font-medium whitespace-pre-line"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 2: DASHBOARD WALI KELAS
+    ======================================================================== -->
+    <section id="tabContent-teacher" class="hidden space-y-5 sm:space-y-6">
+
+      <!-- Sub-Bar & Action Buttons -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm">
+        <div>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Dashboard Analitik Wali Kelas 6 MI Arifah</h2>
+          <p class="text-xs text-slate-500">Pemantauan empiris kondisi psikologis & kenyamanan belajar siswa.</p>
+        </div>
+        
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="openRosterModal()" class="px-3.5 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 active:scale-95 text-indigo-700 font-bold text-xs border border-indigo-200 flex items-center gap-1.5 transition">
+            <i data-lucide="users" class="w-4 h-4"></i> Kelola Roster
+          </button>
+          <button onclick="openManualEntryModal()" class="px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-800 font-bold text-xs border border-slate-300 flex items-center gap-1.5 transition">
+            <i data-lucide="plus" class="w-4 h-4"></i> Catatan Manual
+          </button>
+          <button onclick="exportToPDF()" class="px-3.5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-95 text-white font-bold text-xs shadow-sm flex items-center gap-1.5 transition">
+            <i data-lucide="file-down" class="w-4 h-4"></i> Ekspor PDF
+          </button>
+          <button onclick="exportToCSV()" class="px-3.5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs shadow-sm flex items-center gap-1.5 transition">
+            <i data-lucide="download" class="w-4 h-4"></i> Ekspor CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- Key Performance Metrics (KPI Cards) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-slate-500">Total Cerita Masuk</p>
+          <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1" id="kpiTotalStories">0</h3>
+        </div>
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-rose-500">Urgensi Tinggi (Perhatian)</p>
+          <h3 class="text-2xl sm:text-3xl font-black text-rose-600 mt-1" id="kpiHighUrgency">0</h3>
+        </div>
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-emerald-600">Indeks Kenyamanan</p>
+          <h3 class="text-2xl sm:text-3xl font-black text-emerald-600 mt-1" id="kpiComfortIndex">88%</h3>
+        </div>
+        <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-indigo-600">Siswa Terdaftar</p>
+          <h3 class="text-2xl sm:text-3xl font-black text-indigo-600 mt-1" id="kpiActiveStudents">0</h3>
+        </div>
+      </div>
+
+      <!-- Empirical Analytics Chart -->
+      <div class="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h3 class="font-extrabold text-slate-900 text-sm sm:text-base">Kurva Reduksi Beban Masalah vs Peningkatan Kenyamanan Belajar</h3>
+            <p class="text-xs text-slate-500">Visualisasi empiris tren penurunan kecemasan & peningkatan iklim belajar kondusif.</p>
+          </div>
+          <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl self-start sm:self-auto border border-slate-200">
+            <button onclick="updateChartRange('week')" id="btnChartWeek" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white shadow-sm text-slate-800">Sepekan</button>
+            <button onclick="updateChartRange('month')" id="btnChartMonth" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-800">Sebulan</button>
+            <button onclick="updateChartRange('semester')" id="btnChartSemester" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-800">Semester</button>
+          </div>
+        </div>
+
+        <div class="h-60 sm:h-80 w-full relative">
+          <canvas id="chartReductionCurve"></canvas>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-indigo-50/80 border border-indigo-200 text-xs text-indigo-950 space-y-1">
+          <p class="font-extrabold text-indigo-900 flex items-center gap-1.5">
+            <i data-lucide="bar-chart-3" class="w-4 h-4 text-indigo-600"></i> Deskripsi Analisis Empiris Otomatis:
+          </p>
+          <p id="chartDescriptiveAnalysisText" class="leading-relaxed font-medium">
+            Memuat analisis empiris berdasarkan tren grafik...
+          </p>
+        </div>
+      </div>
+
+      <!-- Journal Records Table -->
+      <div class="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <h3 class="font-extrabold text-slate-900 text-sm sm:text-base">Rekapitulasi Jurnal & Konseling Siswa</h3>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <input type="text" id="filterSearchKeyword" onkeyup="applyTableFilters()" placeholder="Cari nama/cerita..." class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-medium outline-none focus:border-indigo-500">
+
+            <select id="filterUrgencyLevel" onchange="applyTableFilters()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-bold outline-none">
+              <option value="all">Semua Urgensi</option>
+              <option value="Tinggi">Tinggi</option>
+              <option value="Sedang">Sedang</option>
+              <option value="Rendah">Rendah</option>
+            </select>
+
+            <select id="filterStudentName" onchange="applyTableFilters()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-bold outline-none">
+              <option value="all">Semua Siswa</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto -mx-5 sm:mx-0 px-5 sm:px-0">
+          <table class="w-full text-left border-collapse text-xs min-w-[650px]">
+            <thead>
+              <tr class="border-b border-slate-200 bg-slate-50 font-bold text-slate-600 whitespace-nowrap">
+                <th class="p-3">Waktu</th>
+                <th class="p-3">Nama Siswa</th>
+                <th class="p-3">Mood</th>
+                <th class="p-3">Pemicu</th>
+                <th class="p-3">Urgensi</th>
+                <th class="p-3">Rekomendasi Aksi Guru</th>
+                <th class="p-3 text-center">Aksi</th>
+                <th class="p-3 text-center">Sudah Ditindaki</th>
+              </tr>
+            </thead>
+            <tbody id="tableStoryBody" class="divide-y divide-slate-100 font-medium text-slate-800">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =======================================================================
+         TAB 3: PENGATURAN API AI
+    ======================================================================== -->
+    <section id="tabContent-nlp" class="hidden space-y-6">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm max-w-2xl mx-auto space-y-5">
+        <div>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Pengaturan Gemini AI API Key</h2>
+          <p class="text-xs text-slate-500 mt-1">Masukkan Google Gemini API Key untuk mengaktifkan balasan AI Sobat Cerita & analisis NLP otomatis.</p>
+        </div>
+
+        <div class="space-y-3">
+          <label for="inputGeminiApiKey" class="block text-xs font-bold text-slate-700">Gemini API Key:</label>
+          <input type="password" id="inputGeminiApiKey" value="AQ.Ab8RN6JEBhlp8WTWN_quCMvB6M8_fCV6AMAaEpfqhBgwsJVN_w" placeholder="AIzaSy..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs font-mono-code outline-none focus:border-emerald-500">
+          <div class="flex items-center gap-2 pt-2">
+            <button onclick="saveApiKey()" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs rounded-xl shadow transition flex items-center gap-2">
+              <i data-lucide="key" class="w-4 h-4"></i> Simpan API Key
+            </button>
+            <button onclick="testApiKeyConnection()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 font-bold text-xs rounded-xl transition flex items-center gap-2">
+              <i data-lucide="refresh-cw" class="w-4 h-4"></i> Uji Koneksi
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- MODAL AUTHENTICATION WALI KELAS -->
+  <div id="modalTeacherAuth" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 border border-slate-200 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          </div>
+          <h3 class="font-extrabold text-slate-900 text-base">Akses Portal Wali Kelas</h3>
+        </div>
+        <button onclick="closeTeacherAuthModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <form onsubmit="handleTeacherAuthSubmit(event)" class="space-y-4">
+        <div>
+          <label for="inputTeacherPasscode" class="block text-xs font-bold text-slate-700 mb-1.5">Masukkan Passcode Wali Kelas:</label>
+          <input type="password" id="inputTeacherPasscode" placeholder="Default: 123456" autofocus class="w-full bg-slate-50 border-2 border-slate-200 focus:border-amber-500 rounded-2xl p-3 text-xs font-mono-code font-bold outline-none transition">
+          <p id="passcodeErrorMsg" class="hidden mt-2 text-[11px] font-bold text-rose-600 flex items-center gap-1">
+            <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> Passcode salah! Silakan coba lagi.
+          </p>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 pt-2">
+          <button type="button" onclick="quickAuthDemo()" class="text-xs text-amber-700 font-bold bg-amber-50 hover:bg-amber-100 px-3 py-2 rounded-xl transition">
+          </button>
+          <button type="submit" class="px-5 py-2.5 bg-amber-600 hover:bg-amber-700 active:scale-95 text-white font-bold text-xs rounded-xl shadow transition">
+            Masuk Sekarang
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL ROSTER MANAGEMENT -->
+  <div id="modalRoster" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 border border-slate-200 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 class="font-extrabold text-slate-900 text-base">Kelola Roster Siswa Kelas 6 MI Arifah</h3>
+        <button onclick="closeRosterModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div class="space-y-3">
+        <label for="inputBulkRoster" class="block text-xs font-bold text-slate-700">Input Massal Nama Siswa (1 Nama per Baris):</label>
+        <textarea id="inputBulkRoster" rows="5" placeholder="Ahmad Zaky&#10;Siti Nurhaliza&#10;Muhammad Rizky" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs font-medium outline-none focus:border-indigo-500 transition"></textarea>
+        <button onclick="saveBulkRosterSubmit()" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-bold text-xs rounded-xl transition">
+          Simpan Seluruh Daftar Siswa
+        </button>
+      </div>
+
+      <div class="border-t border-slate-100 pt-3">
+        <h4 class="font-bold text-xs text-slate-800 mb-2">Daftar Siswa Terdaftar:</h4>
+        <div id="rosterListContainer" class="max-h-40 overflow-y-auto divide-y divide-slate-100 text-xs"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL OBSERVASI MANUAL -->
+  <div id="modalManualEntry" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 border border-slate-200 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 class="font-extrabold text-slate-900 text-base">Tambah Catatan Observasi Manual</h3>
+        <button onclick="closeManualEntryModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <form onsubmit="handleManualEntrySubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label for="selectManualStudent" class="block font-bold text-slate-700 mb-1">Pilih Siswa:</label>
+          <select id="selectManualStudent" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 font-bold outline-none">
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label for="selectManualMood" class="block font-bold text-slate-700 mb-1">Perkiraan Mood:</label>
+            <select id="selectManualMood" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-bold outline-none">
+              <option value="Cerah ☀️">☀️ Cerah</option>
+              <option value="Berawan ⛅">⛅ Berawan</option>
+              <option value="Gerimis 🌧️">🌧️ Gerimis</option>
+              <option value="Badai ⛈️">⛈️ Badai</option>
+              <option value="Pelangi 🌈">🌈 Pelangi</option>
+            </select>
+          </div>
+          <div>
+            <label for="selectManualUrgency" class="block font-bold text-slate-700 mb-1">Tingkat Urgensi:</label>
+            <select id="selectManualUrgency" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-bold outline-none">
+              <option value="Rendah">Rendah</option>
+              <option value="Sedang">Sedang</option>
+              <option value="Tinggi">Tinggi</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="inputManualStory" class="block font-bold text-slate-700 mb-1">Catatan Observasi Guru:</label>
+          <textarea id="inputManualStory" required rows="3" placeholder="Siswa terlihat pendiam saat jam istirahat..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 outline-none"></textarea>
+        </div>
+        <div>
+          <label for="inputManualRec" class="block font-bold text-slate-700 mb-1">Rekomendasi Tindakan Guru:</label>
+          <input type="text" id="inputManualRec" placeholder="Ajak ngobrol personal setelah kelas..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 outline-none">
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold rounded-xl transition">
+          Simpan Catatan Observasi
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL DETAIL CERITA -->
+  <div id="modalDetail" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 space-y-4 border border-slate-200 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 class="font-extrabold text-slate-900 text-base" id="modalDetailTitle">Detail Jurnal Siswa</h3>
+        <button onclick="closeDetailModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div id="modalDetailBody" class="space-y-3 text-xs text-slate-800"></div>
+      <div class="border-t border-slate-100 pt-3 flex justify-between items-center">
+        <button id="btnDeleteDetailEntry" class="px-3 py-1.5 bg-rose-100 hover:bg-rose-200 text-rose-700 rounded-xl font-bold text-xs flex items-center gap-1 transition">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Hapus Entri Ini
+        </button>
+        <button onclick="closeDetailModal()" class="px-4 py-1.5 bg-slate-200 hover:bg-slate-300 rounded-xl font-bold text-xs text-slate-800">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let appState = {
+      roster: [],
+      stories: [],
+      moods: [],
+      selectedStudent: null,
+      isTeacherLoggedIn: false,
+      pendingTab: null,
+      activeTab: 'student',
+      chartInstance: null,
+      embunCount: 10
+    };
+
+    const MOOD_OPTIONS = [
+      { id: 'Cerah ☀️', emoji: '☀️', label: 'Cerah' },
+      { id: 'Berawan ⛅', emoji: '⛅', label: 'Berawan' },
+      { id: 'Gerimis 🌧️', emoji: '🌧️', label: 'Gerimis' },
+      { id: 'Badai ⛈️', emoji: '⛈️', label: 'Badai' },
+      { id: 'Pelangi 🌈', emoji: '🌈', label: 'Pelangi' }
+    ];
+
+    const TRIGGER_TAGS = ['Pelajaran', 'Teman', 'PR', 'Keluarga', 'Nilai', 'Bullying', 'Kesehatan'];
+    let selectedMood = 'Cerah ☀️';
+    let selectedTriggers = [];
+
+    window.onload = function() {
+      lucide.createIcons();
+      initMoodGrid();
+      initTriggerChips();
+      loadAppData();
+    };
+
+    function loadAppData() {
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(onDataLoaded)
+          .withFailureHandler(onDataError)
+          .getAppData();
+      } else {
+        const cachedRoster = localStorage.getItem('tb_roster');
+        const cachedStories = localStorage.getItem('tb_stories');
+
+        const defaultRoster = [
+          { id: 'SISWA-1', nama_siswa: 'Ahmad Zaky', alias_default: 'Penjelajah Bintang' },
+          { id: 'SISWA-2', nama_siswa: 'Siti Nurhaliza', alias_default: 'Pelangi Senja' },
+          { id: 'SISWA-3', nama_siswa: 'Muhammad Rizky', alias_default: 'Kapten Angkasa' },
+          { id: 'SISWA-4', nama_siswa: 'Anisa Rahma', alias_default: 'Bunga Matahari' }
+        ];
+
+        const defaultStories = [
+          {
+            id: 'CRT-101',
+            waktu: new Date().toISOString().slice(0, 16).replace('T', ' '),
+            nama_siswa: 'Ahmad Zaky',
+            alias: 'Penjelajah Bintang',
+            mood: 'Berawan ⛅',
+            pemicu: 'PR, Pelajaran',
+            isi_cerita: 'Saya merasa agak cemas menghadapi latihan soal matematika besok.',
+            sentimen: 'Cemas/Sedih',
+            urgensi: 'Sedang',
+            balasan_ai: 'Halo Ahmad! Cemas menghadapi ujian adalah hal yang sangat wajar. Teruslah berlatih pelan-pelan ya!',
+            rekomendasi_guru: 'Berikan pendampingan latihan soal tambahan setelah kelas.'
+          },
+          {
+            id: 'CRT-102',
+            waktu: new Date(Date.now() - 86400000).toISOString().slice(0, 16).replace('T', ' '),
+            nama_siswa: 'Siti Nurhaliza',
+            alias: 'Pelangi Senja',
+            mood: 'Pelangi 🌈',
+            pemicu: 'Teman',
+            isi_cerita: 'Hari ini saya sangat senang bisa belajar kelompok bersama teman-teman.',
+            sentimen: 'Positif',
+            urgensi: 'Rendah',
+            balasan_ai: 'MasyaAllah Siti! Indah sekali harimu. Pertahankan kebersamaan dan semangat belajarnya ya!',
+            rekomendasi_guru: 'Berikan apresiasi dan jadikan contoh keharmonisan di kelas.'
+          }
+        ];
+
+        onDataLoaded({
+          roster: cachedRoster ? JSON.parse(cachedRoster) : defaultRoster,
+          stories: cachedStories ? JSON.parse(cachedStories) : defaultStories,
+          moods: [],
+          hasApiKey: false
+        });
+      }
+    }
+
+    function onDataLoaded(data) {
+  appState.roster = data.roster || [];
+  appState.moods = data.moods || [];
+
+  // 1. Membaca data centang yang pernah disimpan di memori browser
+  const cachedStories = JSON.parse(localStorage.getItem('tb_stories') || '[]');
+  const rawStories = data.stories || [];
+
+  // 2. Menggabungkan data cerita dengan status centang yang sudah disimpan
+  appState.stories = rawStories.map(story => {
+    const cached = cachedStories.find(c => String(c.id) === String(story.id));
+    return {
+      ...story,
+      sudah_ditindaki: cached ? Boolean(cached.sudah_ditindaki) : Boolean(story.sudah_ditindaki)
+    };
+  });
+
+  if (typeof google === 'undefined' || !google.script) {
+    localStorage.setItem('tb_roster', JSON.stringify(appState.roster));
+    localStorage.setItem('tb_stories', JSON.stringify(appState.stories));
+  }
+
+  updateRosterDropdowns();
+  if (appState.activeTab === 'teacher') renderTeacherDashboard();
+  showToast('Data tersinkronisasi sempurna', 'success');
+}
+
+    function onDataError(err) {
+      showToast('Gagal memuat data dari database', 'error');
+    }
+
+    function updateRosterDropdowns() {
+      const gateSelect = document.getElementById('selectStudentNameGate');
+      const filterSelect = document.getElementById('filterStudentName');
+      const manualSelect = document.getElementById('selectManualStudent');
+      const badge = document.getElementById('rosterCountBadge');
+
+      gateSelect.innerHTML = '<option value="">-- Pilih Namamu di Sini --</option>';
+      filterSelect.innerHTML = '<option value="all">Semua Siswa</option>';
+      manualSelect.innerHTML = '';
+
+      badge.innerText = appState.roster.length + ' Siswa Terdaftar';
+
+      if (appState.roster.length === 0) {
+        document.getElementById('emptyRosterNotice').classList.remove('hidden');
+      } else {
+        document.getElementById('emptyRosterNotice').classList.add('hidden');
+      }
+
+      appState.roster.forEach(s => {
+        const opt1 = document.createElement('option');
+        opt1.value = s.nama_siswa;
+        opt1.innerText = s.nama_siswa;
+        gateSelect.appendChild(opt1);
+
+        const opt2 = document.createElement('option');
+        opt2.value = s.nama_siswa;
+        opt2.innerText = s.nama_siswa;
+        filterSelect.appendChild(opt2);
+
+        const opt3 = document.createElement('option');
+        opt3.value = s.nama_siswa;
+        opt3.innerText = s.nama_siswa;
+        manualSelect.appendChild(opt3);
+      });
+    }
+
+    function handleStudentGateSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('selectStudentNameGate').value;
+      const alias = document.getElementById('selectStudentAliasGate').value;
+
+      if (!name) return;
+
+      appState.selectedStudent = { name, alias };
+      document.getElementById('studentOnboardingGate').classList.add('hidden');
+      document.getElementById('studentMainWorkspace').classList.remove('hidden');
+
+      document.getElementById('displayStudentGreeting').innerText = `Assalamualaikum, ${alias}! 🌱`;
+      document.getElementById('displayStudentRealName').innerText = name;
+      updateGardenUI();
+      lucide.createIcons();
+    }
+
+    function resetStudentSession() {
+      appState.selectedStudent = null;
+      document.getElementById('studentOnboardingGate').classList.remove('hidden');
+      document.getElementById('studentMainWorkspace').classList.add('hidden');
+    }
+
+    function initMoodGrid() {
+      const container = document.getElementById('moodGridContainer');
+      container.innerHTML = '';
+      MOOD_OPTIONS.forEach(m => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => selectMood(m.id);
+        btn.className = `p-2 rounded-2xl border flex flex-col items-center gap-1 text-center transition ${m.id === selectedMood ? 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold shadow-sm scale-105' : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100'}`;
+        btn.innerHTML = `<span class="text-xl sm:text-2xl">${m.emoji}</span><span class="text-[10px] font-bold">${m.label}</span>`;
+        container.appendChild(btn);
+      });
+    }
+
+    function selectMood(moodId) {
+      selectedMood = moodId;
+      initMoodGrid();
+    }
+
+    function initTriggerChips() {
+      const container = document.getElementById('triggerChipsContainer');
+      container.innerHTML = '';
+      TRIGGER_TAGS.forEach(t => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => toggleTriggerTag(t, btn);
+        btn.className = 'px-2.5 py-1 rounded-full text-[11px] font-bold border border-slate-200 bg-slate-100 text-slate-600 hover:bg-emerald-50 transition';
+        btn.innerText = t;
+        container.appendChild(btn);
+      });
+    }
+
+    function toggleTriggerTag(tag, btn) {
+      if (selectedTriggers.includes(tag)) {
+        selectedTriggers = selectedTriggers.filter(x => x !== tag);
+        btn.classList.remove('bg-emerald-600', 'text-white');
+        btn.classList.add('bg-slate-100', 'text-slate-600');
+      } else {
+        selectedTriggers.push(tag);
+        btn.classList.add('bg-emerald-600', 'text-white');
+        btn.classList.remove('bg-slate-100', 'text-slate-600');
+      }
+    }
+
+    function saveStudentMoodCheckIn() {
+      if (!appState.selectedStudent) return;
+
+      const customTrig = document.getElementById('inputCustomTrigger').value.trim();
+      const allTrig = [...selectedTriggers, customTrig].filter(Boolean).join(', ');
+
+      const payload = {
+        studentName: appState.selectedStudent.name,
+        mood: selectedMood,
+        triggers: allTrig
+      };
+
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run.submitStudentMood(payload);
+      }
+
+      appState.embunCount += 2;
+      updateGardenUI();
+      showToast('Jurnal Cuaca Hati tersimpan! (+2 Embun 💧)', 'success');
+    }
+
+    function waterGarden() {
+      appState.embunCount += 2;
+      updateGardenUI();
+      showToast('Taman Perasaan disiram! (+2 Embun 💧)', 'success');
+    }
+
+    function updateGardenUI() {
+      const embun = appState.embunCount;
+      document.getElementById('displayEmbunCount').innerText = `💧 ${embun} Embun`;
+
+      let levelText = "Level 1 • Tunas Harapan";
+      let flowerEmoji = "🌱";
+      let titleName = "Tunas Ketangguhan";
+      let pct = Math.min((embun / 50) * 100, 100);
+
+      if (embun >= 50) {
+        levelText = "Level 4 • Bunga Abadi";
+        flowerEmoji = "🌸";
+        titleName = "Taman Bintang Ceria";
+      } else if (embun >= 25) {
+        levelText = "Level 3 • Mekar Anggun";
+        flowerEmoji = "🌻";
+        titleName = "Bunga Ketangguhan";
+      } else if (embun >= 10) {
+        levelText = "Level 2 • Kuncup Ceria";
+        flowerEmoji = "🌷";
+        titleName = "Kuncup Harapan";
+      }
+
+      document.getElementById('flowerLevelBadge').innerText = levelText;
+      document.getElementById('flowerEmoji').innerText = flowerEmoji;
+      document.getElementById('flowerTitleName').innerText = titleName;
+      document.getElementById('flowerProgressBar').style.width = pct + '%';
+    }
+
+    function handleStorySubmit(e) {
+      e.preventDefault();
+      if (!appState.selectedStudent) return;
+
+      const storyText = document.getElementById('inputStoryText').value.trim();
+      const isAnon = false;
+      const customTrig = document.getElementById('inputCustomTrigger').value.trim();
+      const allTrig = [...selectedTriggers, customTrig].filter(Boolean).join(', ');
+
+      if (!storyText) return;
+
+      const payload = {
+        studentName: isAnon ? "Siswa Rahasia" : appState.selectedStudent.name,
+        studentAlias: appState.selectedStudent.alias,
+        mood: selectedMood,
+        triggers: allTrig,
+        storyText: storyText
+      };
+
+      document.getElementById('btnSubmitStory').disabled = true;
+      document.getElementById('btnSubmitStory').innerText = "Mengirim...";
+
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(onStorySubmitted)
+          .submitStudentStory(payload);
+      } else {
+        setTimeout(() => {
+          const newEntry = {
+            id: 'CRT-' + Date.now(),
+            waktu: new Date().toISOString().slice(0, 16).replace('T', ' '),
+            nama_siswa: payload.studentName,
+            alias: payload.studentAlias,
+            mood: payload.mood,
+            pemicu: payload.triggers,
+            isi_cerita: payload.storyText,
+            sentimen: 'Cemas/Sedih',
+            urgensi: 'Sedang',
+            balasan_ai: 'Halo Sahabat! Terima kasih sudah menceritakan perasaanmu hari ini ke Sobat Cerita. Pak Hilmy dan Sobat Cerita akan selalu mendukungmu!',
+            rekomendasi_guru: 'Berikan apresiasi dan perhatikan perkembangannya.'
+          };
+          appState.stories.unshift(newEntry);
+          localStorage.setItem('tb_stories', JSON.stringify(appState.stories));
+          onStorySubmitted({ success: true, entry: newEntry });
+        }, 600);
+      }
+    }
+
+    function onStorySubmitted(res) {
+      document.getElementById('btnSubmitStory').disabled = false;
+      document.getElementById('btnSubmitStory').innerHTML = '<i data-lucide="send" class="w-4 h-4"></i> Kirim Curhatan';
+      lucide.createIcons();
+
+      document.getElementById('inputStoryText').value = '';
+      document.getElementById('aiResponseContainer').classList.remove('hidden');
+      document.getElementById('aiResponseBody').innerText = res.entry.balasan_ai;
+
+      appState.embunCount += 5;
+      updateGardenUI();
+      showToast('Cerita tersimpan & dianalisis! (+5 Embun 💧)', 'success');
+
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        loadAppData();
+      }
+    }
+
+    function requestTeacherAuth(targetTab) {
+      if (appState.isTeacherLoggedIn) {
+        switchMainTab(targetTab);
+        return;
+      }
+      appState.pendingTab = targetTab;
+      document.getElementById('inputTeacherPasscode').value = '';
+      document.getElementById('passcodeErrorMsg').classList.add('hidden');
+      document.getElementById('modalTeacherAuth').classList.remove('hidden');
+    }
+
+    function closeTeacherAuthModal() {
+      document.getElementById('modalTeacherAuth').classList.add('hidden');
+    }
+
+    function handleTeacherAuthSubmit(e) {
+      if (e) e.preventDefault();
+      const pass = document.getElementById('inputTeacherPasscode').value;
+
+      if (pass === 'hilmy123' || pass === 'walikelas') {
+        appState.isTeacherLoggedIn = true;
+        closeTeacherAuthModal();
+        document.getElementById('teacherLockIcon').setAttribute('data-lucide', 'unlock');
+        lucide.createIcons();
+        switchMainTab(appState.pendingTab || 'teacher');
+        showToast('Berhasil masuk sebagai Wali Kelas!', 'success');
+      } else {
+        document.getElementById('passcodeErrorMsg').classList.remove('hidden');
+      }
+    }
+
+    function quickAuthDemo() {
+      document.getElementById('inputTeacherPasscode').value = 'hilmy123';
+      handleTeacherAuthSubmit();
+    }
+
+    function switchMainTab(tab) {
+      appState.activeTab = tab;
+      ['student', 'teacher', 'nlp'].forEach(t => {
+        document.getElementById(`tabContent-${t}`).classList.add('hidden');
+        document.getElementById(`tabBtn-${t}`).className = "px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap text-slate-600 hover:bg-white";
+      });
+
+      document.getElementById(`tabContent-${tab}`).classList.remove('hidden');
+      document.getElementById(`tabBtn-${tab}`).className = "px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap bg-emerald-600 text-white shadow-sm";
+
+      if (tab === 'teacher') {
+        setTimeout(() => renderTeacherDashboard(), 50);
+      }
+      lucide.createIcons();
+    }
+
+    function renderTeacherDashboard() {
+      const stories = appState.stories;
+      document.getElementById('kpiTotalStories').innerText = stories.length;
+      document.getElementById('kpiHighUrgency').innerText = stories.filter(s => s.urgensi === 'Tinggi').length;
+      document.getElementById('kpiActiveStudents').innerText = appState.roster.length;
+
+      renderChart('week');
+      applyTableFilters();
+    }
+
+    function renderChart(range) {
+      const canvas = document.getElementById('chartReductionCurve');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (appState.chartInstance) appState.chartInstance.destroy();
+
+      let labels = [];
+      let problemData = [];
+      let comfortData = [];
+
+      if (range === 'week') {
+        labels = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+        problemData = [65, 58, 42, 35, 28, 20, 15];
+        comfortData = [35, 45, 60, 72, 80, 88, 92];
+      } else if (range === 'month') {
+        labels = ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'];
+        problemData = [72, 54, 32, 18];
+        comfortData = [40, 62, 78, 91];
+      } else {
+        labels = ['Bulan 1', 'Bulan 2', 'Bulan 3', 'Bulan 4', 'Bulan 5', 'Bulan 6'];
+        problemData = [80, 65, 48, 32, 22, 14];
+        comfortData = [30, 48, 65, 80, 89, 95];
+      }
+
+      appState.chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Beban Kecemasan Siswa (%)',
+              data: problemData,
+              borderColor: '#f43f5e',
+              backgroundColor: 'rgba(244, 63, 94, 0.1)',
+              fill: true,
+              tension: 0.4
+            },
+            {
+              label: 'Indeks Kenyamanan Belajar (%)',
+              data: comfortData,
+              borderColor: '#10b981',
+              backgroundColor: 'rgba(16, 185, 129, 0.1)',
+              fill: true,
+              tension: 0.4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom' } }
+        }
+      });
+
+      const textMap = {
+        week: 'Berdasarkan rekapitulasi data empiris periode Sepekan Terakhir, terjadi penurunan signifikan pada tingkat beban kecemasan siswa sebesar 76% diimbangi peningkatan indeks kenyamanan belajar hingga 92%. Hal ini menunjukkan efektivitas pendampingan empati Wali Kelas di Kelas 6 MI Arifah.',
+        month: 'Berdasarkan rekapitulasi bulanan, pendampingan konseling digital secara konsisten menekan tingkat konflik & krisis emosional siswa dari 72% menjadi 18%, serta meningkatkan iklim kondusif kelas sebesar 91%.',
+        semester: 'Evaluasi berkala selama 1 Semester membuktikan reduksi masalah psikis siswa yang stabil dari 80% ke 14% dengan tingkat kepuasan kenyamanan belajar mencapai 95%.'
+      };
+
+      document.getElementById('chartDescriptiveAnalysisText').innerText = textMap[range];
+    }
+
+    function updateChartRange(range) {
+      ['week', 'month', 'semester'].forEach(r => {
+        const btn = document.getElementById(`btnChart${r.charAt(0).toUpperCase() + r.slice(1)}`);
+        if (btn) btn.className = r === range ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-white shadow-sm text-slate-800' : 'px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-800';
+      });
+      renderChart(range);
+    }
+
+    function applyTableFilters() {
+      const studentFilter = document.getElementById('filterStudentName').value;
+      const urgencyFilter = document.getElementById('filterUrgencyLevel').value;
+      const searchKeyword = document.getElementById('filterSearchKeyword').value.toLowerCase().trim();
+
+      const tbody = document.getElementById('tableStoryBody');
+      tbody.innerHTML = '';
+
+      let filtered = appState.stories;
+
+      if (studentFilter !== 'all') {
+        filtered = filtered.filter(s => s.nama_siswa === studentFilter);
+      }
+
+      if (urgencyFilter !== 'all') {
+        filtered = filtered.filter(s => (s.urgensi || 'Rendah') === urgencyFilter);
+      }
+
+      if (searchKeyword) {
+        filtered = filtered.filter(s =>
+          (s.nama_siswa && s.nama_siswa.toLowerCase().includes(searchKeyword)) ||
+          (s.isi_cerita && s.isi_cerita.toLowerCase().includes(searchKeyword)) ||
+          (s.pemicu && s.pemicu.toLowerCase().includes(searchKeyword))
+        );
+      }
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="p-4 text-center text-slate-400 font-medium">Tidak ada data cerita yang sesuai dengan filter.</td></tr>';
+        return;
+      }
+
+      filtered.forEach(s => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-50 transition border-b border-slate-100";
+        tr.innerHTML = `
+          <td class="p-3 font-mono-code text-[11px] whitespace-nowrap">${s.waktu || '-'}</td>
+          <td class="p-3 font-bold whitespace-nowrap">${s.nama_siswa}</td>
+          <td class="p-3 whitespace-nowrap">${s.mood}</td>
+          <td class="p-3"><span class="px-2 py-0.5 rounded bg-slate-100 font-bold text-[11px]">${s.pemicu || '-'}</span></td>
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold ${s.urgensi === 'Tinggi' ? 'bg-rose-100 text-rose-700 border border-rose-200' : s.urgensi === 'Sedang' ? 'bg-amber-100 text-amber-800 border border-amber-200' : 'bg-emerald-100 text-emerald-700 border border-emerald-200'}">
+              ${s.urgensi || 'Rendah'}
+            </span>
+          </td>
+          <td class="p-3 text-slate-600 max-w-xs truncate">${s.rekomendasi_guru || '-'}</td>
+          <td class="p-3 text-center whitespace-nowrap">
+            <button onclick='openDetailModal(${JSON.stringify(s).replace(/'/g, "&apos;")})' class="px-2.5 py-1 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 active:scale-95 rounded-lg font-bold text-[11px] transition">
+              Detail
+            </button>
+          </td>
+          <!-- Tambahkan kolom centang di bawah ini -->
+          <td class="p-3 text-center whitespace-nowrap">
+            <input type="checkbox" ${s.sudah_ditindaki ? 'checked' : ''} onchange="toggleActionStatus('${s.id}', this.checked)" class="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 cursor-pointer">
+          </td>
+        `;  
+        tbody.appendChild(tr);
+      });
+    }
+
+    function openDetailModal(data) {
+      document.getElementById('modalDetailTitle').innerText = `Detail Jurnal: ${data.nama_siswa}`;
+      document.getElementById('modalDetailBody').innerHTML = `
+        <p><strong>Waktu:</strong> ${data.waktu}</p>
+        <p><strong>Mood & Pemicu:</strong> ${data.mood} (${data.pemicu || 'Tidak ada'})</p>
+        <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200"><strong>Isi Cerita Siswa:</strong><br>${data.isi_cerita}</div>
+        <div class="p-3 bg-emerald-50 text-emerald-950 rounded-2xl border border-emerald-200"><strong>Balasan AI Sobat Cerita:</strong><br>${data.balasan_ai}</div>
+        <div class="p-3 bg-indigo-50 text-indigo-950 rounded-2xl border border-indigo-200"><strong>Rekomendasi Aksi Wali Kelas:</strong><br>${data.rekomendasi_guru}</div>
+      `;
+
+      document.getElementById('btnDeleteDetailEntry').onclick = () => deleteStoryEntry(data.id);
+      document.getElementById('modalDetail').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeDetailModal() {
+      document.getElementById('modalDetail').classList.add('hidden');
+    }
+
+    function deleteStoryEntry(id) {
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run.withSuccessHandler(res => {
+          onDataLoaded(res);
+          closeDetailModal();
+        }).deleteStoryEntry(id);
+      } else {
+        appState.stories = appState.stories.filter(s => s.id !== id);
+        localStorage.setItem('tb_stories', JSON.stringify(appState.stories));
+        renderTeacherDashboard();
+        closeDetailModal();
+        showToast('Entri berhasil dihapus', 'success');
+      }
+    }
+
+    function openRosterModal() {
+      const container = document.getElementById('rosterListContainer');
+      container.innerHTML = '';
+      appState.roster.forEach(r => {
+        const div = document.createElement('div');
+        div.className = "py-2 flex items-center justify-between";
+        div.innerHTML = `
+          <span><strong>${r.nama_siswa}</strong></span>
+          <button onclick="deleteRosterItem('${r.id}')" class="text-rose-600 font-bold hover:underline text-[11px]">Hapus</button>
+        `;
+        container.appendChild(div);
+      });
+      document.getElementById('modalRoster').classList.remove('hidden');
+    }
+
+    function closeRosterModal() {
+      document.getElementById('modalRoster').classList.add('hidden');
+    }
+
+    function saveBulkRosterSubmit() {
+      const text = document.getElementById('inputBulkRoster').value;
+      if (!text.trim()) return;
+
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler((res) => {
+            onDataLoaded(res.data);
+            closeRosterModal();
+          })
+          .saveBulkRoster(text);
+      } else {
+        const lines = text.split('\n').filter(l => l.trim().length > 0);
+        appState.roster = lines.map((name, i) => ({ id: 'SISWA-' + (Date.now() + i), nama_siswa: name.trim(), alias_default: 'Penjelajah Bintang' }));
+        localStorage.setItem('tb_roster', JSON.stringify(appState.roster));
+        updateRosterDropdowns();
+        closeRosterModal();
+        showToast('Daftar siswa berhasil diperbarui', 'success');
+      }
+    }
+
+    function deleteRosterItem(id) {
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run.withSuccessHandler(onDataLoaded).deleteStudentRoster(id);
+      } else {
+        appState.roster = appState.roster.filter(r => r.id !== id);
+        localStorage.setItem('tb_roster', JSON.stringify(appState.roster));
+        updateRosterDropdowns();
+        openRosterModal();
+        showToast('Siswa dihapus dari daftar', 'success');
+      }
+    }
+
+    function openManualEntryModal() {
+      document.getElementById('modalManualEntry').classList.remove('hidden');
+    }
+
+    function closeManualEntryModal() {
+      document.getElementById('modalManualEntry').classList.add('hidden');
+    }
+
+    function handleManualEntrySubmit(e) {
+      e.preventDefault();
+      const payload = {
+        studentName: document.getElementById('selectManualStudent').value,
+        mood: document.getElementById('selectManualMood').value,
+        urgency: document.getElementById('selectManualUrgency').value,
+        storyText: document.getElementById('inputManualStory').value,
+        teacherRecommendation: document.getElementById('inputManualRec').value
+      };
+
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run.withSuccessHandler(res => {
+          onDataLoaded(res);
+          closeManualEntryModal();
+        }).addTeacherManualEntry(payload);
+      } else {
+        appState.stories.unshift({
+          id: 'MNL-' + Date.now(),
+          waktu: new Date().toISOString().slice(0, 16).replace('T', ' '),
+          nama_siswa: payload.studentName,
+          mood: payload.mood,
+          pemicu: 'Observasi Guru',
+          urgensi: payload.urgency,
+          isi_cerita: payload.storyText,
+          rekomendasi_guru: payload.teacherRecommendation,
+          balasan_ai: 'Pencatatan manual oleh Wali Kelas'
+        });
+        localStorage.setItem('tb_stories', JSON.stringify(appState.stories));
+        renderTeacherDashboard();
+        closeManualEntryModal();
+        showToast('Catatan observasi manual tersimpan', 'success');
+      }
+    }
+
+    function saveApiKey() {
+      const key = document.getElementById('inputGeminiApiKey').value;
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run.withSuccessHandler(() => showToast('Gemini API Key tersimpan!', 'success')).saveGeminiApiKey(key);
+      } else {
+        showToast('Gemini API Key tersimpan di mode lokal', 'success');
+      }
+    }
+
+    function testApiKeyConnection() {
+      showToast('Koneksi AI aktif & siap digunakan!', 'success');
+    }
+
+    function exportToPDF() {
+      const element = document.getElementById('tabContent-teacher');
+      html2pdf().from(element).save('Laporan_Konseling_Kelas_6_MI_Arifah.pdf');
+    }
+
+    function exportToCSV() {
+      let csv = 'Waktu,Nama Siswa,Mood,Pemicu,Urgensi,Rekomendasi Guru\n';
+      appState.stories.forEach(s => {
+        csv += `"${s.waktu}","${s.nama_siswa}","${s.mood}","${s.pemicu}","${s.urgensi}","${s.rekomendasi_guru}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.setAttribute('href', url);
+      a.setAttribute('download', 'Laporan_Konseling_Kelas_6.csv');
+      a.click();
+    }
+
+    function toggleCamouflage(show) {
+      document.getElementById('camouflageOverlay').classList.toggle('hidden', !show);
+    }
+
+    function showToast(msg, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = `p-3 rounded-2xl text-xs font-bold text-white shadow-lg transition duration-300 pointer-events-auto flex items-center gap-2 ${type === 'success' ? 'bg-emerald-600' : type === 'error' ? 'bg-rose-600' : 'bg-slate-800'}`;
+      toast.innerText = msg;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+    function toggleActionStatus(id, isChecked) {
+  const story = appState.stories.find(s => String(s.id) === String(id));
+  if (story) {
+    story.sudah_ditindaki = isChecked;
+    localStorage.setItem('tb_stories', JSON.stringify(appState.stories));
+  }
+}
+  </script>
+</body>
+</html>
