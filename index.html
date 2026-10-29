@@ -142,9 +142,179 @@
         #auth-card{margin:auto}
         .overflow-x-auto{-webkit-overflow-scrolling:touch}
         .modal-wrap>div{max-height:none}
-    </style>
+    
+/* ===== SIGMA v2: Madrasah Theme ===== */
+html{background:#0A2540}
+#sigma-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(60% 50% at 15% 10%,rgba(229,193,88,.16),transparent 70%),radial-gradient(55% 55% at 88% 92%,rgba(5,150,105,.38),transparent 70%),linear-gradient(150deg,#0A2540 0%,#0F2027 32%,#2C5364 65%,#059669 135%)}
+#sigma-pat{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%23E5C158' stroke-width='1'%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Crect x='15' y='15' width='30' height='30' transform='rotate(45 30 30)'/%3E%3Ccircle cx='30' cy='30' r='21.2'/%3E%3C/g%3E%3C/svg%3E")}
+#sigma-mosque{position:absolute;left:0;bottom:0;width:100%;height:40vh;opacity:.5}
+#sigma-fx{position:absolute;inset:0;width:100%;height:100%}
+body.app-bg,body.theme-madrasah,body.theme-lingkungan{background:transparent}
+#auth-container{background:transparent!important;animation:none!important;position:relative;z-index:5}
+#main-app{position:relative;z-index:5}
+main.bg-slate-50{background:transparent!important}
+.panel-bg{background:rgba(255,255,255,.88)!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.45)}
+#auth-card{border-color:rgba(229,193,88,.25)}
+.bk-in{width:100%;padding:.45rem .6rem;border:1px solid #e2e8f0;border-radius:.6rem;font-size:.75rem;background:#f8fafc}
+.bk-tab.on{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+/* ===== SIGMA v3: Royal Emerald-Navy-Gold (global) ===== */
+html{background:#020617}
+#sigma-bg{background:radial-gradient(55% 45% at 12% 8%,rgba(251,191,36,.14),transparent 70%),radial-gradient(60% 55% at 90% 95%,rgba(15,118,110,.45),transparent 70%),linear-gradient(155deg,#020617 0%,#0f172a 28%,#064e3b 72%,#0f766e 135%)}
+#sigma-pat{opacity:.12;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23fbbf24' stroke-width='1'%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='28.3'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3Cpath d='M0 0L20 20M80 0L60 20M0 80L20 60M80 80L60 60'/%3E%3C/g%3E%3C/svg%3E")}
+#sigma-mosque{stroke:#fbbf24;opacity:.38;filter:drop-shadow(0 0 6px rgba(245,158,11,.45))}
+#sigma-bg::before,#sigma-bg::after{content:"";position:absolute;width:42vmax;height:42vmax;border-radius:50%;filter:blur(70px);animation:sgBreath 14s ease-in-out infinite}
+#sigma-bg::before{top:-14vmax;left:-10vmax;background:rgba(245,158,11,.13)}
+#sigma-bg::after{bottom:-16vmax;right:-12vmax;background:rgba(5,150,105,.22);animation-delay:-7s}
+@keyframes sgBreath{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+#content-area{color:#e2e8f0}
+.panel-bg,.modal-wrap>div{color:#0f172a}
+/* Kartu & panel: kaca terang berbingkai emas */
+.panel-bg{background:rgba(255,255,255,.94)!important;border:1px solid rgba(251,191,36,.28)!important;box-shadow:0 10px 36px rgba(2,6,23,.38),inset 0 1px 0 rgba(255,255,255,.6)!important;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.glass-card:hover{border-color:rgba(251,191,36,.55);box-shadow:0 12px 34px rgba(245,158,11,.18)}
+.modal-wrap>div{background:rgba(255,255,255,.98)!important;border:1px solid rgba(251,191,36,.35);box-shadow:0 24px 70px rgba(2,6,23,.55),0 0 0 1px rgba(5,150,105,.15)}
+/* Header gelap kaca */
+header.panel-bg{background:rgba(6,24,32,.78)!important;border-bottom:1px solid rgba(251,191,36,.35)!important;color:#f8fafc}
+header.panel-bg h2,header.panel-bg p{color:#f8fafc!important}
+header.panel-bg #user-role-display{background:rgba(251,191,36,.15);color:#fde68a;border-color:rgba(251,191,36,.4)}
+/* Sidebar */
+.sidebar{background:linear-gradient(180deg,rgba(2,6,23,.92) 0%,rgba(6,78,59,.88) 100%)!important;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-right:1px solid rgba(251,191,36,.28)!important}
+.sidebar-item:hover{background:rgba(251,191,36,.1);color:#fde68a}
+.sidebar-item.active{background:linear-gradient(135deg,rgba(5,150,105,.85),rgba(15,118,110,.4))!important;border:1px solid rgba(251,191,36,.5);box-shadow:0 0 20px rgba(245,158,11,.28)}
+/* Tombol utama: zamrud berkilau, tepi emas saat hover */
+.btn-primary,button.bg-emerald-600,button.bg-indigo-600,button.bg-teal-600,button.bg-blue-600,button.bg-green-600{background:linear-gradient(135deg,#059669 0%,#0f766e 55%,#064e3b 100%)!important;color:#fff!important;border:1px solid rgba(251,191,36,.18);box-shadow:0 4px 14px rgba(5,150,105,.35),inset 0 1px 0 rgba(255,255,255,.25);transition:all .25s ease}
+.btn-primary:hover,button.bg-emerald-600:hover,button.bg-indigo-600:hover,button.bg-teal-600:hover,button.bg-blue-600:hover,button.bg-green-600:hover{border-color:#fbbf24;box-shadow:0 0 0 2px rgba(251,191,36,.35),0 6px 22px rgba(245,158,11,.35);transform:translateY(-1px)}
+.btn-primary:disabled,button:disabled{opacity:.55;transform:none}
+/* Input: kontras jelas, fokus emas */
+.panel-bg input:not([type=checkbox]):not([type=radio]):not([type=range]),.panel-bg select,.panel-bg textarea,.modal-wrap input:not([type=checkbox]):not([type=radio]),.modal-wrap select,.modal-wrap textarea{background:#fff!important;color:#0f172a!important;border:1px solid rgba(5,150,105,.35)!important}
+.panel-bg input::placeholder,.panel-bg textarea::placeholder,.modal-wrap input::placeholder{color:#64748b}
+.panel-bg input:focus,.panel-bg select:focus,.panel-bg textarea:focus,.modal-wrap input:focus,.modal-wrap select:focus,.modal-wrap textarea:focus{outline:none;border-color:#d97706!important;box-shadow:0 0 0 3px rgba(245,158,11,.28)}
+/* Tabel */
+.panel-bg table:not(.matrix-table) thead th,.panel-bg table:not(.matrix-table) thead tr{background:linear-gradient(90deg,#ecfdf5,#fffbeb)!important;color:#064e3b!important}
+.panel-bg table:not(.matrix-table) thead tr{border-bottom:2px solid rgba(217,119,6,.45)}
+.panel-bg tbody tr:hover{background:rgba(251,191,36,.09)}
+/* Scrollbar, SweetAlert, sisipan */
+.custom-scrollbar::-webkit-scrollbar-thumb,#content-area::-webkit-scrollbar-thumb{background:rgba(251,191,36,.55);border-radius:10px}
+#content-area{scrollbar-color:rgba(251,191,36,.55) transparent}
+.swal2-popup{border:1px solid rgba(251,191,36,.4)!important;border-radius:1.25rem!important}
+.swal2-styled.swal2-confirm{background:linear-gradient(135deg,#059669,#064e3b)!important}
+#dev-banner{border-bottom:1px solid rgba(251,191,36,.5)}
+@media(max-width:1023px){.panel-bg{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.97)!important}.sidebar{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
+
+/* ===== SIGMA v3: Luxury Madrasah Futuristik (hanya CSS/dekorasi; JS tidak diubah) ===== */
+:root{--em1:#064e3b;--em2:#0f766e;--em3:#10b981;--nv1:#0a192f;--nv2:#0f172a;--nv3:#1e293b;--g1:#d97706;--g2:#f59e0b;--g3:#fbbf24;--g4:#ffd700}
+#sigma-bg{background:radial-gradient(70% 55% at 12% 8%,rgba(255,215,0,.13),transparent 70%),radial-gradient(60% 60% at 90% 95%,rgba(16,185,129,.40),transparent 70%),linear-gradient(155deg,#0a192f 0%,#0f172a 30%,#064e3b 78%,#0f766e 120%)}
+#sigma-bg::after{content:"";position:absolute;left:50%;bottom:-12vh;width:80vw;height:50vh;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(245,158,11,.22),transparent 70%);animation:sgPulse 6s ease-in-out infinite}
+@keyframes sgPulse{50%{opacity:.55}}
+#sigma-pat{opacity:.08}
+#sigma-mosque{filter:drop-shadow(0 0 7px rgba(245,158,11,.65))}
+#sigma-orn{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 0 10px rgba(255,215,0,.55))}
+@media(max-width:640px){#sigma-orn .qr{display:none}}
+/* panel & kartu: kaca terang + border emas */
+.panel-bg,.glass-card{background:rgba(255,255,255,.88)!important;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(245,158,11,.25)!important;transition:box-shadow .3s,border-color .3s}
+.panel-bg:hover,.glass-card:hover{border-color:rgba(245,158,11,.6)!important;box-shadow:0 0 22px rgba(245,158,11,.22),0 10px 30px rgba(6,78,59,.18)}
+#view-dashboard .grid>.panel-bg{background:linear-gradient(135deg,rgba(236,253,245,.94),rgba(219,234,254,.90))!important}
+.modal-wrap>div{background:rgba(255,255,255,.94)!important;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(245,158,11,.4)!important;box-shadow:0 0 40px rgba(245,158,11,.18)}
+/* sidebar */
+.sidebar{background:linear-gradient(180deg,#0a192f 0%,#0f172a 55%,#064e3b 100%)!important;border-right:1px solid rgba(245,158,11,.3)!important}
+.sidebar-item.active{background:linear-gradient(135deg,rgba(16,185,129,.55),rgba(245,158,11,.25))!important;border:1px solid rgba(251,191,36,.45);box-shadow:0 0 14px rgba(245,158,11,.3)}
+/* tombol */
+.btn-primary{background:linear-gradient(135deg,#064e3b,#0f766e 60%,#10b981)!important;border:1px solid rgba(251,191,36,.5)}
+.btn-primary:hover{box-shadow:0 0 18px rgba(245,158,11,.5)}
+/* tabel: header hijau-emas, baris selang-seling */
+#main-app table thead th{background:linear-gradient(90deg,#064e3b,#0f766e)!important;color:#fde68a!important;border-bottom:2px solid #f59e0b!important}
+#main-app table thead tr{background:transparent!important}
+#main-app table:not(.matrix-table) tbody tr:nth-child(even){background:rgba(6,78,59,.06)}
+#main-app table:not(.matrix-table) tbody tr:hover{background:rgba(245,158,11,.12)}
+.matrix-wrapper{border:1px solid rgba(245,158,11,.4)!important;box-shadow:0 0 18px rgba(245,158,11,.15)}
+.matrix-input:focus{background:#fef3c7!important;box-shadow:inset 0 0 0 2px #f59e0b!important}
+/* input / select / textarea (kecuali form login yang sudah gelap) */
+body :is(input,select,textarea):not(#auth-container *):not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not(.matrix-input){border-radius:.75rem;background-color:rgba(255,255,255,.75)!important;border:1px solid rgba(15,118,110,.28);transition:box-shadow .2s,border-color .2s}
+body :is(input,select,textarea):not(#auth-container *):focus{outline:none;border-color:#f59e0b!important;box-shadow:0 0 0 3px rgba(16,185,129,.30),0 0 12px rgba(245,158,11,.35)}
+#auth-card{box-shadow:0 0 60px rgba(245,158,11,.14),0 0 40px rgba(16,185,129,.18)!important}
+/* aksen */
+.custom-scrollbar::-webkit-scrollbar-thumb,#content-area::-webkit-scrollbar-thumb{background:linear-gradient(#10b981,#f59e0b)}
+::selection{background:#fbbf24;color:#0a192f}
+@media(max-width:1023px){.panel-bg,.glass-card,.modal-wrap>div{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(255,255,255,.95)!important}#sigma-bg::after{animation:none}}
+
+/* ===== SIGMA v4: penyesuaian ke gambar referensi ===== */
+#sigma-bg{background:radial-gradient(60% 50% at 10% 5%,rgba(255,215,0,.10),transparent 70%),radial-gradient(70% 70% at 85% 100%,rgba(16,185,129,.35),transparent 70%),linear-gradient(150deg,#0a192f 0%,#0f2f3a 32%,#14575a 70%,#0f766e 115%)}
+#sigma-pat{opacity:.10;-webkit-mask-image:linear-gradient(#000,transparent 75%);mask-image:linear-gradient(#000,transparent 75%)}
+#sigma-mosque{display:none}
+#sigma-mosque2{position:absolute;right:1vw;bottom:0;height:68vh;max-width:56vw;filter:drop-shadow(0 0 14px rgba(245,158,11,.5));opacity:.92}
+#sigma-arch{position:absolute;left:0;bottom:0;height:48vh;max-width:40vw;opacity:.45}
+@media(max-width:640px){#sigma-mosque2{height:46vh;opacity:.6}#sigma-arch{display:none}}
+.panel-bg,.glass-card{background:rgba(214,238,235,.62)!important;-webkit-backdrop-filter:blur(10px) saturate(1.2);backdrop-filter:blur(10px) saturate(1.2);border:1px solid rgba(251,191,36,.55)!important;box-shadow:0 8px 32px rgba(0,0,0,.25),inset 0 0 0 1px rgba(255,215,0,.12)}
+.panel-bg .text-slate-400,.panel-bg .text-slate-500{color:#1e293b!important}
+#main-app table:not(.matrix-table) tbody td{background:rgba(240,253,250,.72)}
+header.panel-bg{background:linear-gradient(90deg,rgba(10,25,47,.94),rgba(15,70,70,.88),rgba(6,78,59,.9))!important;border:0!important;border-bottom:1px solid #fbbf24!important;box-shadow:0 4px 20px rgba(0,0,0,.35)!important;color:#fff!important}
+header.panel-bg h2,header.panel-bg #user-name-display{color:#fff!important}
+header.panel-bg #user-role-display{background:rgba(6,78,59,.7);color:#fde68a;border-color:#fbbf24}
+header.panel-bg #btn-back-global,header.panel-bg [aria-label=Menu]{background:rgba(255,255,255,.12)!important;color:#fff!important;border:1px solid rgba(251,191,36,.5)}
+#header-logo-container{border-color:#fbbf24!important;box-shadow:0 0 14px rgba(251,191,36,.6)}
+body :is(input,select,textarea):not(#auth-container *):not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not(.matrix-input){border-radius:1rem;background-color:rgba(205,232,230,.72)!important;border:1px solid rgba(251,191,36,.38);color:#0a192f}
+body :is(input,select,textarea)::placeholder{color:#334155;opacity:.9}
+.btn-primary,#content-area button.bg-emerald-600,#content-area button.bg-indigo-600,#content-area button.bg-teal-600,.modal-wrap button.bg-emerald-600{background:linear-gradient(90deg,#0f766e,#12376b)!important;color:#fff!important;border:1px solid rgba(251,191,36,.6)!important;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+#content-area button.bg-slate-100,#content-area button.bg-white,.pk-b{background:linear-gradient(180deg,#f1f5f9,#94a3b8)!important;color:#0f172a!important;border:1px solid rgba(251,191,36,.45)!important;border-radius:.9rem;box-shadow:0 3px 8px rgba(0,0,0,.3);font-weight:700}
+
+/* ===== SIGMA v8: halaman login sesuai referensi (#auth-container / #auth-card) ===== */
+#sigma-bg{background:radial-gradient(60% 50% at 12% 6%,rgba(255,215,0,.10),transparent 70%),radial-gradient(60% 60% at 90% 100%,rgba(16,185,129,.22),transparent 70%),linear-gradient(135deg,#064e3b 0%,#0b3b3f 38%,#04122b 78%,#020617 100%)}
+#sigma-pat{opacity:.11;-webkit-mask-image:linear-gradient(90deg,#000,transparent 26%,transparent 74%,#000);mask-image:linear-gradient(90deg,#000,transparent 26%,transparent 74%,#000)}
+#auth-container{padding:1.25rem!important;align-items:center!important}
+#auth-card{max-width:64rem!important;width:100%;min-height:min(36rem,calc(100dvh - 5rem));margin:auto!important;overflow:hidden;border-radius:2.5rem!important;background:rgba(5,18,38,.55)!important;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1.5px solid rgba(110,231,183,.30)!important;box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 40px rgba(229,193,88,.12)!important}
+#login-left{padding:3rem!important;background:linear-gradient(150deg,rgba(26,122,108,.95) 0%,rgba(12,72,76,.96) 48%,rgba(8,34,52,.98) 100%)!important;border:0!important}
+#login-left>.z-10{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+#login-left>.z-10>.flex{margin-bottom:0!important}
+#login-left h2{line-height:1.12!important;text-shadow:0 0 22px rgba(110,231,183,.25)}
+#login-left p{opacity:.85}
+#login-right{position:relative;overflow:hidden;padding:4.4rem 2.4rem 2.4rem!important;background:radial-gradient(70% 45% at 50% 0%,rgba(40,70,190,.35),transparent 70%),linear-gradient(180deg,#0a0f3a,#070b2c)!important}
+#login-frame{position:relative;width:100%;max-width:27rem;margin:0 auto;padding:0 1.8rem 1.8rem;border-radius:1.9rem;border:2px solid #e5c158;background:linear-gradient(165deg,rgba(255,255,255,.14),rgba(18,26,80,.55));box-shadow:0 0 34px rgba(245,158,11,.5),inset 0 0 26px rgba(255,215,0,.15)}
+#login-frame>*{position:relative;z-index:3}
+#login-frame>.lf-orn,#login-frame>.lf-crown{position:absolute;z-index:1;pointer-events:none;filter:drop-shadow(0 0 6px rgba(255,215,0,.55))}
+.lf-orn{top:0;width:clamp(90px,36%,160px);border-top-left-radius:1.7rem}
+.lf-l{left:0}.lf-r{right:0;transform:scaleX(-1)}
+.lf-crown{left:50%;top:-4.3rem;width:14rem;transform:translateX(-50%)}
+#login-frame .text-center.mb-10{margin-top:-3rem;margin-bottom:1.6rem!important}
+#login-logo-container{width:5.4rem!important;height:5.4rem!important;border:3px solid #f5d77a!important;border-radius:1.2rem!important;background:#fff!important;box-shadow:0 0 26px rgba(255,215,0,.6),0 8px 20px rgba(0,0,0,.4)!important;margin-bottom:1rem!important}
+#login-logo-placeholder{color:#047857!important;filter:none!important}
+#login-frame h1{font-size:2.1rem;line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+#form-login .input-focus-ring{border:1.5px solid rgba(229,193,88,.7);border-radius:1rem;background:rgba(10,15,50,.5);box-shadow:0 0 10px rgba(229,193,88,.22)}
+#form-login .input-focus-ring:focus-within{box-shadow:0 0 0 3px rgba(16,185,129,.35),0 0 18px rgba(229,193,88,.5)}
+#form-login input{background:transparent!important;border:0!important;color:#fff!important;min-height:3.2rem}
+#btn-login-submit{background:linear-gradient(90deg,#10b981,#14b8a6 55%,#0f9d8a)!important;border:1.5px solid rgba(229,193,88,.7)!important;border-radius:1rem!important;box-shadow:0 0 20px rgba(16,185,129,.4)!important;letter-spacing:.06em;transition:box-shadow .25s,transform .25s}
+#btn-login-submit:hover{transform:translateY(-1px);box-shadow:0 0 30px rgba(16,185,129,.7),0 0 18px rgba(229,193,88,.5)!important}
+@media(max-width:767px){
+ #auth-container{align-items:flex-start!important}
+ #auth-card{min-height:0;border-radius:2rem!important}
+ #login-left{display:flex!important;grid-column:span 12/span 12;padding:1.75rem 1.5rem!important}
+ #login-left .z-10>.flex{margin-bottom:1.25rem!important}
+ #login-left h2{font-size:1.9rem!important}
+ #login-right{padding:4rem 1rem 1.6rem!important}
+ #login-frame{padding:0 1.1rem 1.4rem}.lf-crown{width:12rem}
+}
+</style>
 </head>
 <body class="theme-madrasah app-bg min-h-screen text-slate-800 antialiased overflow-x-hidden flex flex-col h-screen">
+    <div id="sigma-bg" aria-hidden="true"><div id="sigma-pat"></div><svg id="sigma-orn" viewBox="0 0 1200 800" preserveAspectRatio="xMaxYMax slice" fill="none" stroke="#FFD700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".6">
+      <path d="M1040 60A46 46 0 1 0 1088 130A38 38 0 1 1 1040 60Z" fill="rgba(255,215,0,.18)"/><path d="M1100 70l4 10 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z" fill="rgba(255,215,0,.35)"/>
+      <g class="qr" transform="translate(40 610)"><path d="M0 40Q70 10 140 40V120Q70 90 0 120Z"/><path d="M280 40Q210 10 140 40V120Q210 90 280 120Z"/><path d="M20 62Q70 42 120 62M20 82Q70 62 120 82M160 62Q210 42 260 62M160 82Q210 62 260 82"/><path d="M40 128L140 150L240 128M110 150L90 172H190L170 150"/></g>
+    </svg>
+    <svg id="sigma-mosque" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" fill="none" stroke="#D4AF37" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 299H1200"/><path d="M480 299V205C480 135 540 95 600 75C660 95 720 135 720 205V299"/><path d="M600 75V40M591 52H609"/><path d="M560 299V240A40 40 0 0 1 640 240V299"/>
+      <path d="M300 299V120L315 100L330 120V299M300 120L315 55L330 120M292 160H338M292 210H338"/><path d="M870 299V120L885 100L900 120V299M870 120L885 55L900 120M862 160H908M862 210H908"/>
+      <path d="M130 299V250C130 215 160 200 185 190C210 200 240 215 240 250V299"/><path d="M960 299V250C960 215 990 200 1015 190C1040 200 1070 215 1070 250V299"/><path d="M185 190V172"/><path d="M1015 190V172"/>
+    </svg><svg id="sigma-mosque2" viewBox="0 0 600 520" preserveAspectRatio="xMaxYMax meet" stroke="#D4AF37" stroke-width="2" stroke-linejoin="round"><defs><linearGradient id="sgN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e4a78"/><stop offset="1" stop-color="#0a192f"/></linearGradient></defs>
+<path d="M60 520V420H540V520Z" fill="url(#sgN)"/><path d="M110 420V350H490V420" fill="url(#sgN)"/>
+<path d="M170 420V335C170 255 230 195 300 165C370 195 430 255 430 335V420Z" fill="url(#sgN)"/><path d="M300 165V125" fill="none"/><path d="M300 78A24 24 0 1 0 324 114A19 19 0 1 1 300 78Z" fill="#E5C158"/>
+<circle cx="300" cy="285" r="46" fill="none" opacity=".7"/><path d="M238 330Q300 304 362 330V352Q300 328 238 352Z" fill="#B8962E"/><path d="M300 318V346" fill="none"/>
+<path d="M268 420V385A32 32 0 0 1 332 385V420" fill="#0a192f"/>
+<path d="M62 420V270H100V420Z" fill="url(#sgN)"/><path d="M56 270A25 25 0 0 1 106 270Z" fill="url(#sgN)"/><path d="M81 245V228" fill="none"/><rect x="74" y="300" width="14" height="48" rx="7" fill="none"/>
+<path d="M500 420V270H538V420Z" fill="url(#sgN)"/><path d="M494 270A25 25 0 0 1 544 270Z" fill="url(#sgN)"/><path d="M519 245V228" fill="none"/><rect x="512" y="300" width="14" height="48" rx="7" fill="none"/>
+<path d="M436 420V110H462V420Z" fill="url(#sgN)"/><path d="M436 110L449 20L462 110" fill="url(#sgN)"/><path d="M430 190H468M430 260H468M430 330H468" fill="none"/><rect x="442" y="210" width="8" height="36" rx="4" fill="none"/>
+<path d="M140 420V200H166V420Z" fill="url(#sgN)"/><path d="M140 200L153 110L166 200" fill="url(#sgN)"/><path d="M134 260H172M134 330H172" fill="none"/></svg>
+<svg id="sigma-arch" viewBox="0 0 400 420" preserveAspectRatio="xMinYMax meet" fill="none" stroke="#E5C158" stroke-width="1.6"><path d="M20 420V260A70 70 0 0 1 160 260V420"/><path d="M40 420V268A50 50 0 0 1 140 268V420"/><path d="M180 420V190A90 90 0 0 1 360 190V420"/><path d="M200 420V198A70 70 0 0 1 340 198V420"/><path d="M270 120V60M262 74H278"/></svg>
+<canvas id="sigma-fx"></canvas></div>
+
 
     <div id="dev-banner" class="no-print"><i class="fas fa-mosque mr-1"></i> aplikasi ini dikembangkan oleh Muh. Hilmy Afiq, B.Ed., Gr</div>
 
@@ -171,7 +341,7 @@
         
         <div id="auth-card" class="bg-slate-900/60 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_0_50px_-12px_rgba(16,185,129,0.2)] overflow-hidden w-full max-w-5xl grid grid-cols-1 md:grid-cols-12 border border-white/10 z-10">
             <!-- Left Panel -->
-            <div class="hidden md:flex md:col-span-6 bg-gradient-to-br from-teal-900/90 to-slate-950/90 p-12 text-white flex-col justify-between relative overflow-hidden border-r border-white/5">
+            <div id="login-left" class="hidden md:flex md:col-span-6 bg-gradient-to-br from-teal-900/90 to-slate-950/90 p-12 text-white flex-col justify-between relative overflow-hidden border-r border-white/5">
                 <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-br from-emerald-400/20 to-transparent rounded-full blur-2xl"></div>
                 
@@ -200,7 +370,7 @@
             </div>
 
             <!-- Right Panel Form -->
-            <div class="col-span-12 md:col-span-6 p-8 sm:p-14 flex flex-col justify-center bg-slate-950/80 relative">
+            <div id="login-right" class="col-span-12 md:col-span-6 flex flex-col justify-center relative"><div id="login-frame"><svg class="lf-orn lf-l" viewBox="0 0 200 260" fill="none" stroke="#E5C158" stroke-width="1.2" aria-hidden="true"><defs><linearGradient id="lfG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c7a78"/><stop offset="1" stop-color="#123a6a"/></linearGradient></defs><path d="M0 0H200C200 58 158 72 146 120C136 160 98 174 82 214C70 240 34 254 0 262Z" fill="url(#lfG)" fill-opacity=".9"/><path d="M14 14C70 22 106 52 94 98M14 46C60 56 86 80 78 120M14 80C44 90 62 110 58 142M32 202C62 192 78 172 86 150M112 14C132 40 152 50 192 52M24 120C40 112 52 118 60 130" opacity=".85"/><path d="M40 30C56 44 70 44 80 36M30 66C46 80 60 82 70 74" opacity=".7"/><g fill="#FFD700" stroke="none"><circle cx="30" cy="30" r="2"/><circle cx="62" cy="58" r="1.6"/><circle cx="92" cy="40" r="2"/><circle cx="122" cy="30" r="1.4"/><circle cx="48" cy="100" r="1.6"/><circle cx="152" cy="62" r="1.8"/><circle cx="72" cy="152" r="1.4"/><circle cx="172" cy="30" r="1.6"/></g></svg><svg class="lf-orn lf-r" viewBox="0 0 200 260" fill="none" stroke="#E5C158" stroke-width="1.2" aria-hidden="true"><path d="M0 0H200C200 58 158 72 146 120C136 160 98 174 82 214C70 240 34 254 0 262Z" fill="url(#lfG)" fill-opacity=".9"/><path d="M14 14C70 22 106 52 94 98M14 46C60 56 86 80 78 120M14 80C44 90 62 110 58 142M32 202C62 192 78 172 86 150M112 14C132 40 152 50 192 52M24 120C40 112 52 118 60 130" opacity=".85"/><path d="M40 30C56 44 70 44 80 36M30 66C46 80 60 82 70 74" opacity=".7"/><g fill="#FFD700" stroke="none"><circle cx="30" cy="30" r="2"/><circle cx="62" cy="58" r="1.6"/><circle cx="92" cy="40" r="2"/><circle cx="122" cy="30" r="1.4"/><circle cx="48" cy="100" r="1.6"/><circle cx="152" cy="62" r="1.8"/><circle cx="72" cy="152" r="1.4"/><circle cx="172" cy="30" r="1.6"/></g></svg><svg class="lf-crown" viewBox="0 0 200 90" fill="rgba(18,90,100,.55)" stroke="#FFD700" stroke-width="1.7" aria-hidden="true"><path d="M8 90C34 80 56 66 72 42C84 24 94 14 100 0C106 14 116 24 128 42C144 66 166 80 192 90Z"/><path d="M40 90C62 80 82 62 100 28C118 62 138 80 160 90" fill="none" opacity=".6"/><path d="M0 90C22 70 44 78 62 90M200 90C178 70 156 78 138 90" fill="none"/><circle cx="100" cy="8" r="2.6" fill="#FFD700" stroke="none"/></svg>
                 <div class="text-center mb-10">
                     <div id="login-logo-container" class="mx-auto h-20 w-20 rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-900 border border-slate-700 flex items-center justify-center mb-6 shadow-2xl overflow-hidden relative group cursor-pointer transition-transform hover:scale-105">
                         <div class="absolute inset-0 bg-emerald-500/20 blur-xl group-hover:bg-emerald-500/30 transition-all"></div>
@@ -287,7 +457,7 @@
                             <i class="fas fa-arrow-left mr-1"></i> Kembali ke Halaman Login
                         </a>
                     </div>
-                </form>
+                </form></div>
             </div>
         </div>
     </div>
@@ -323,6 +493,7 @@
                     <div id="menu-admin" class="hidden mt-4 pt-4 border-t border-white/10">
                         <p class="px-6 text-[10px] font-extrabold uppercase tracking-widest text-yellow-400 opacity-60 mb-2">Sistem Administrator</p>
                         <a href="#" onclick="navTo('pengguna')" id="nav-pengguna" class="sidebar-item flex items-center px-5 py-3 text-sm text-yellow-300"><i class="fas fa-user-shield w-6 text-base opacity-80"></i> Manajemen Pengguna</a>
+<a href="#" onclick="navTo('akun-massal')" id="nav-akun-massal" class="sidebar-item flex items-center px-5 py-3 text-sm text-yellow-300"><i class="fas fa-users-gear w-6 text-base opacity-80"></i> Buat Akun Massal</a>
                     </div>
                 </nav>
             </div>
@@ -358,7 +529,7 @@
 
             <div class="flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 lg:p-8 pb-24 custom-scrollbar" id="content-area">
                 
-                <div id="view-dashboard" class="view-section">
+                <div id="view-dashboard" class="view-section"><div id="dash-guru" class="hidden"><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="panel-bg rounded-2xl shadow-lg p-6 flex items-start gap-4"><div class="h-12 w-12 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center shrink-0"><i class="fas fa-users"></i></div><div class="min-w-0"><p class="text-xs font-bold text-slate-500 mb-1">Jumlah Siswa yang Diajar</p><h3 class="text-3xl font-extrabold text-slate-800" id="g-siswa">0</h3></div></div><div class="panel-bg rounded-2xl shadow-lg p-6 flex items-start gap-4"><div class="h-12 w-12 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center shrink-0"><i class="fas fa-chalkboard"></i></div><div class="min-w-0"><p class="text-xs font-bold text-slate-500 mb-1">Jumlah Kelas yang Diajar</p><h3 class="text-3xl font-extrabold text-slate-800" id="g-kelas">0</h3></div></div><div class="panel-bg rounded-2xl shadow-lg p-6 flex items-start gap-4"><div class="h-12 w-12 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center shrink-0"><i class="fas fa-user-clock"></i></div><div class="min-w-0"><p class="text-xs font-bold text-slate-500 mb-1">Jadwal Piket Hari Ini</p><div id="g-piket" class="text-sm font-bold text-slate-700">Memuat...</div></div></div></div></div>
                     <div class="mb-6 p-4 bg-gradient-to-r from-emerald-800 to-teal-950 text-white rounded-3xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border border-emerald-700/30">
                         <div class="flex items-center gap-4">
                             <div class="p-3.5 bg-white/10 rounded-2xl border border-white/10 text-yellow-300 text-2xl shrink-0"><i class="fas fa-shield-halved"></i></div>
@@ -833,7 +1004,17 @@
                     </div>
                 </div>
 
-                <div id="view-pengguna" class="view-section hidden">
+                <div id="view-akun-massal" class="view-section hidden space-y-4">
+<div class="panel-bg rounded-2xl p-5 space-y-4">
+ <div class="flex flex-wrap items-center gap-2"><div class="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-bold"><button onclick="bkTab('up')" id="bkt-up" class="bk-tab on px-3 py-1.5 rounded-lg">Unggah CSV / Excel</button><button onclick="bkTab('man')" id="bkt-man" class="bk-tab px-3 py-1.5 rounded-lg text-slate-500">Form Multi-Baris</button></div><span class="flex-1"></span><button onclick="bkTemplate()" class="px-3 py-2 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-xl text-xs font-bold"><i class="fas fa-download mr-1"></i>Unduh Template</button></div>
+ <p class="text-[11px] text-slate-500">Kolom: NIP/NIK, Nama Lengkap, Email, Role (Guru Mapel / Wali Kelas / Admin), Password Default, Mata Pelajaran, Kelas. Beberapa mapel/kelas dipisah titik koma (;). NIP/NIK menjadi username login.</p>
+ <div id="bk-up"><input type="file" id="bk-file" accept=".csv,.xlsx,.xls" onchange="bkFile(this)" class="text-xs"></div>
+ <div id="bk-man" class="hidden space-y-2"><div id="bk-rows" class="space-y-2 overflow-x-auto"></div><div class="flex gap-2"><button onclick="bkAddRow()" class="px-3 py-2 bg-slate-100 rounded-xl text-xs font-bold"><i class="fas fa-plus mr-1"></i>Tambah Baris</button><button onclick="bkFromForm()" class="btn-primary px-4 py-2 rounded-xl text-xs font-bold">Pratinjau Data</button></div></div>
+</div>
+<div id="bk-prev" class="panel-bg rounded-2xl p-5 hidden"><div class="flex flex-wrap items-center gap-3 mb-3"><h3 class="font-extrabold text-sm flex-1">Pratinjau Data</h3><span id="bk-sum" class="text-xs font-bold"></span><button id="bk-go" onclick="bkImport()" class="btn-primary px-4 py-2 rounded-xl text-xs font-bold"><i class="fas fa-check mr-1"></i>Konfirmasi Impor</button></div><div class="overflow-x-auto"><table class="w-full text-xs"><thead><tr class="bg-slate-50 text-left"><th class="p-2">#</th><th class="p-2">NIP/NIK</th><th class="p-2">Nama</th><th class="p-2">Email</th><th class="p-2">Role</th><th class="p-2">Mapel</th><th class="p-2">Kelas</th><th class="p-2">Status</th></tr></thead><tbody id="bk-tb"></tbody></table></div></div>
+<div id="bk-rep" class="panel-bg rounded-2xl p-5 hidden"></div>
+</div>
+<div id="view-pengguna" class="view-section hidden">
                     <div class="panel-bg p-6 rounded-2xl shadow-sm border mb-8">
                         <div class="flex justify-between items-center mb-6">
                             <div><h3 class="font-extrabold text-lg text-slate-800">Manajemen Akses Guru</h3></div>
@@ -2286,6 +2467,83 @@
             d.innerHTML = `<div style="font-family:sans-serif;padding:8px"><h2 style="margin:0">Jadwal Piket Guru - SIGMA MI Arifah Cerdas</h2><p style="font-size:11px;color:#64748b">Dicetak ${new Date().toLocaleString('id-ID')} • ${R.length} jadwal</p><table style="width:100%;border-collapse:collapse;font-size:11px"><thead><tr>${Object.keys(R[0]).map(k => `<th style="border:1px solid #cbd5e1;background:#e6f4ea;padding:5px;text-align:left">${k}</th>`).join('')}</tr></thead><tbody>${R.map(r => '<tr>' + Object.values(r).map(v => `<td style="border:1px solid #e2e8f0;padding:4px">${escapeHTML(v)}</td>`).join('') + '</tr>').join('')}</tbody></table></div>`;
             html2pdf().set({ margin: 8, filename: fn + '.pdf', jsPDF: { orientation: 'landscape', format: 'a4' }, pagebreak: { mode: ['css', 'legacy'] } }).from(d).save();
         }
-    </script>
+    
+// ============ SIGMA v2 ============
+PAGE_TITLES['akun-massal']='Buat Akun Massal';
+// ---- Partikel pendaran ----
+(function(){const c=document.getElementById('sigma-fx'),x=c.getContext('2d');let W,H,P=[];
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight;P=Array.from({length:innerWidth<700?24:55},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+.6,v:Math.random()*.25+.05,a:Math.random()*6.28}))}
+function f(){x.clearRect(0,0,W,H);P.forEach(p=>{p.y-=p.v;p.a+=.02;if(p.y<-5){p.y=H+5;p.x=Math.random()*W}x.beginPath();x.fillStyle='rgba(229,193,88,'+(.25+.25*Math.sin(p.a))+')';x.shadowColor='#E5C158';x.shadowBlur=8;x.arc(p.x,p.y,p.r,0,6.283);x.fill()});requestAnimationFrame(f)}
+addEventListener('resize',rs);rs();if(!matchMedia('(prefers-reduced-motion:reduce)').matches)f();})();
+// ---- Suara sambutan (Web Speech API, id-ID, suara perempuan bila tersedia) ----
+(function(){const ss=window.speechSynthesis;if(!ss)return;
+const T1='Selamat datang di SIGMA, silahkan masukkan username dan password Anda.',T2="Assalamu'alaykum. Semangat mengajar dan melakukan aktivitas hari ini yah.";
+let voice=null,done=false;
+function pick(){const v=ss.getVoices().filter(x=>/^id([-_]|$)/i.test(x.lang));voice=v.find(x=>/female|perempuan|wanita|damayanti|gadis|google/i.test(x.name))||v[0]||null}
+pick();ss.onvoiceschanged=pick;
+function say(t,cb){ss.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='id-ID';u.pitch=1.0;u.rate=0.95;if(voice)u.voice=voice;u.onstart=()=>cb&&cb(true);u.onerror=()=>cb&&cb(false);ss.speak(u)}
+function greet(){if(done||!document.getElementById('main-app').classList.contains('hidden'))return;say(T1,ok=>{if(ok)done=true})}
+addEventListener('load',()=>setTimeout(greet,900)); // browser dapat memblokir autoplay -> diulang pada interaksi pertama
+['pointerdown','keydown','touchstart'].forEach(e=>document.addEventListener(e,greet,{passive:true}));
+const _hl=handleLogin;window.handleLogin=async function(e){window._greetNext=true;try{await _hl(e)}finally{window._greetNext=false}};
+const _is=initializeUserSession;window.initializeUserSession=function(u){_is(u);if(window._greetNext){done=true;say(T2)}};
+})();
+// ---- Dashboard Guru Mapel & Wali Kelas: hanya 3 kartu ----
+const _ld=loadDashboard;
+window.loadDashboard=async function(){
+  if(!currentUser)return;const adm=currentUser.role==='admin',v=document.getElementById('view-dashboard');
+  [...v.children].forEach(c=>c.id!=='dash-guru'&&c.classList.toggle('hidden',!adm));
+  document.getElementById('dash-guru').classList.toggle('hidden',adm);
+  if(adm)return _ld();
+  showLoader();const cls=getAssignedClasses(currentUser,globalClasses),uid=String(currentUser.id||currentUser.ID);
+  document.getElementById('g-kelas').innerText=cls.length;
+  try{document.getElementById('g-siswa').innerText=(await server.run('readData','Siswa')).filter(x=>cls.includes(x.Kelas)).length}catch(e){}
+  let h='Tidak ada jadwal piket hari ini';
+  try{const r=await api.get('piket'),t=localISO(),L=(r.items||[]).filter(i=>i.Tanggal===t&&String(i.GuruID)===uid&&i.Status==='Published').sort((a,b)=>a.JamMulai.localeCompare(b.JamMulai));
+    if(L.length)h=L.map(i=>`<div class="mb-1"><span class="text-emerald-700">${escapeHTML(i.Zona)}</span><br><span class="text-xs text-slate-500">${escapeHTML(i.JamMulai)} - ${escapeHTML(i.JamSelesai)}</span></div>`).join('')}catch(e){}
+  document.getElementById('g-piket').innerHTML=h;hideLoader();
+};
+// ---- Akun Massal ----
+const _nt=navTo;window.navTo=async function(v){if(v==='akun-massal'&&(!currentUser||currentUser.role!=='admin'))return Swal.fire('Akses Ditolak','Hanya admin.','warning');await _nt(v);if(v==='akun-massal'&&!document.querySelector('#bk-rows>*'))bkAddRow()};
+const BK={rows:[],valid:[]},BK_ROLE={'guru mapel':'guru_mapel','guru_mapel':'guru_mapel','wali kelas':'wali_kelas','wali_kelas':'wali_kelas','admin':'admin','administrator':'admin'},BK_H=['NIP/NIK','Nama Lengkap','Email','Role','Password Default','Mata Pelajaran','Kelas'];
+function bkTab(t){['up','man'].forEach(k=>{document.getElementById('bk-'+k).classList.toggle('hidden',k!==t);const b=document.getElementById('bkt-'+k);b.classList.toggle('on',k===t);b.classList.toggle('text-slate-500',k!==t)})}
+function bkTemplate(){const ws=XLSX.utils.aoa_to_sheet([BK_H,['198501012010011001','Ust. Contoh, S.Pd','contoh@madrasah.sch.id','Wali Kelas','Sigma#2026','Matematika;IPA','1A'],['3173000000000002','Ustzh. Contoh, S.Ag','contoh2@madrasah.sch.id','Guru Mapel','Sigma#2026','Fiqih','1A;2A']]);const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Akun');XLSX.writeFile(wb,'template_akun_massal_SIGMA.xlsx')}
+function bkAddRow(){const d=document.createElement('div');d.className='grid grid-cols-7 gap-2 min-w-[860px] bk-r';d.innerHTML=['nip','nama','email'].map(f=>`<input data-f="${f}" class="bk-in" placeholder="${{nip:'NIP/NIK',nama:'Nama lengkap',email:'Email'}[f]}">`).join('')+'<select data-f="role" class="bk-in"><option>Guru Mapel</option><option>Wali Kelas</option><option>Admin</option></select><input data-f="pw" class="bk-in" placeholder="Password default">'+['mapel','kelas'].map(f=>`<input data-f="${f}" class="bk-in" placeholder="${f==='mapel'?'Mapel (;)':'Kelas (;)'}">`).join('');document.getElementById('bk-rows').appendChild(d)}
+function bkFromForm(){const r=[...document.querySelectorAll('.bk-r')].map(d=>{const g=f=>d.querySelector(`[data-f=${f}]`).value.trim();return{nip:g('nip'),nama:g('nama'),email:g('email'),role:g('role'),pw:g('pw'),mapel:g('mapel'),kelas:g('kelas')}}).filter(x=>x.nip||x.nama||x.email);bkPreview(r)}
+function bkFile(inp){const f=inp.files[0];if(!f)return;const rd=new FileReader();rd.onload=ev=>{try{const wb=XLSX.read(new Uint8Array(ev.target.result),{type:'array',raw:true}),js=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:'',raw:false});
+  const key=k=>{k=String(k).toLowerCase().replace(/[^a-z]/g,'');return /^(nip|nik|nipnik)$/.test(k)?'nip':/^nama/.test(k)?'nama':k==='email'?'email':k==='role'?'role':/^password/.test(k)?'pw':/^(mapel|matapelajaran)$/.test(k)?'mapel':k==='kelas'?'kelas':''};
+  bkPreview(js.map(o=>{const r={nip:'',nama:'',email:'',role:'',pw:'',mapel:'',kelas:''};for(const k in o){const m=key(k);if(m)r[m]=String(o[k]).trim()}return r}).filter(x=>x.nip||x.nama||x.email))}catch(e){Swal.fire('Berkas tidak terbaca','Gunakan template yang disediakan.','error')}};rd.readAsArrayBuffer(f)}
+async function bkPreview(rows){
+  if(!rows.length)return invalid('Belum ada data.');showLoader();let ex=[];try{ex=await server.run('readData','User')}catch(e){}hideLoader();
+  const lc=v=>String(v||'').toLowerCase(),ids=new Set(ex.map(u=>lc(u.NIP||u.Username))),mails=new Set(ex.filter(u=>u.Email).map(u=>lc(u.Email))),sn=new Set(),se=new Set();
+  const canon=(list,a)=>a.split(';').map(x=>x.trim()).filter(Boolean).map(x=>({x,c:list.find(l=>lc(l)===lc(x))}));
+  BK.rows=rows.map((r,i)=>{const e=[],role=BK_ROLE[lc(r.role)],nip=r.nip,k=canon(globalClasses,r.kelas),m=canon(globalSubjects,r.mapel);
+    if(!/^[A-Za-z0-9._-]{3,20}$/.test(nip))e.push('NIP/NIK tidak valid (3-20 karakter)');
+    if(r.nama.length<3)e.push('Nama minimal 3 karakter');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email))e.push('Email tidak valid');
+    if(!role)e.push('Role tidak dikenal');
+    if(r.pw.length<6)e.push('Password minimal 6 karakter');
+    if(ids.has(lc(nip))||sn.has(lc(nip)))e.push('NIP/NIK duplikat');
+    if(mails.has(lc(r.email))||se.has(lc(r.email)))e.push('Email duplikat');
+    if(role&&role!=='admin'){if(!k.length)e.push('Kelas wajib diisi');k.filter(z=>!z.c).forEach(z=>e.push('Kelas "'+z.x+'" tidak terdaftar'));m.filter(z=>!z.c).forEach(z=>e.push('Mapel "'+z.x+'" tidak terdaftar'))}
+    sn.add(lc(nip));se.add(lc(r.email));
+    return{...r,n:i+1,role:role,kelasL:k.map(z=>z.c||z.x),mapelL:m.map(z=>z.c||z.x),err:e}});
+  BK.valid=BK.rows.filter(r=>!r.err.length);
+  document.getElementById('bk-tb').innerHTML=BK.rows.map(r=>`<tr class="border-b ${r.err.length?'bg-rose-50':''}"><td class="p-2">${r.n}</td><td class="p-2">${escapeHTML(r.nip)}</td><td class="p-2 font-bold">${escapeHTML(r.nama)}</td><td class="p-2">${escapeHTML(r.email)}</td><td class="p-2">${escapeHTML(r.role||'?')}</td><td class="p-2">${escapeHTML(r.mapelL.join('; '))}</td><td class="p-2">${escapeHTML(r.kelasL.join('; '))}</td><td class="p-2 ${r.err.length?'text-rose-600':'text-emerald-600'} font-bold">${r.err.length?escapeHTML(r.err.join(', ')):'Siap diimpor'}</td></tr>`).join('');
+  document.getElementById('bk-sum').innerText=BK.valid.length+' valid, '+(BK.rows.length-BK.valid.length)+' bermasalah';
+  document.getElementById('bk-go').disabled=!BK.valid.length;document.getElementById('bk-prev').classList.remove('hidden');document.getElementById('bk-rep').classList.add('hidden')}
+async function bkImport(){
+  if(!BK.valid.length)return;const c=await Swal.fire({title:'Impor '+BK.valid.length+' akun?',text:'Data bermasalah akan dilewati.',showCancelButton:true,confirmButtonText:'Ya, impor'});if(!c.isConfirmed)return;
+  showLoader();const fail=BK.rows.filter(r=>r.err.length).map(r=>({nip:r.nip,nama:r.nama,why:r.err.join(', ')}));let ok=0;
+  for(let i=0;i<BK.valid.length;i+=20){const ch=BK.valid.slice(i,i+20);
+    try{const res=await server.run('bulkCreateUsers',ch.map(r=>({NIP:r.nip,NamaLengkap:r.nama,Email:r.email,Role:r.role,Password:r.pw,AssignedClasses:JSON.stringify(r.role==='admin'?[]:r.kelasL),AssignedSubjects:JSON.stringify(r.role==='admin'?[]:r.mapelL)})));
+      (res.results||[]).forEach(x=>{if(x.ok)ok++;else fail.push({nip:x.NIP,nama:(ch.find(r=>r.nip===x.NIP)||{}).nama||'',why:x.error})})}
+    catch(e){ch.forEach(r=>fail.push({nip:r.nip,nama:r.nama,why:e.message||'Gagal terhubung'}))}}
+  hideLoader();window._userCache=null;BK.fail=fail;
+  const b=document.getElementById('bk-rep');b.classList.remove('hidden');
+  b.innerHTML=`<h3 class="font-extrabold text-sm mb-2">Laporan Impor</h3><p class="text-sm"><b class="text-emerald-600">${ok} berhasil</b> • <b class="text-rose-600">${fail.length} gagal</b></p>`+(fail.length?`<table class="w-full text-xs mt-3"><tbody>${fail.map(f=>`<tr class="border-b"><td class="p-2">${escapeHTML(f.nip)}</td><td class="p-2 font-bold">${escapeHTML(f.nama)}</td><td class="p-2 text-rose-600">${escapeHTML(f.why)}</td></tr>`).join('')}</tbody></table><button onclick="bkFailXlsx()" class="mt-3 px-3 py-2 bg-slate-100 rounded-xl text-xs font-bold"><i class="fas fa-download mr-1"></i>Unduh data gagal</button>`:'');
+  document.getElementById('bk-prev').classList.add('hidden')}
+function bkFailXlsx(){const ws=XLSX.utils.aoa_to_sheet([['NIP/NIK','Nama','Alasan'],...BK.fail.map(f=>[f.nip,f.nama,f.why])]),wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Gagal');XLSX.writeFile(wb,'laporan_gagal_impor.xlsx')}
+</script>
 </body>
 </html>
